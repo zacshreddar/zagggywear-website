@@ -8,83 +8,285 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* --- Smooth scroll and layout tweaks --- */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0b0b;
+      color: #f5f5f5;
+    }
+
+    /* --- Navbar --- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: #d4af37;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1606813902914-0d3baf4f3b5e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #f1f1f1;
+    }
+
+    .btn {
+      background: #d4af37;
+      color: #000;
+      padding: 0.9rem 1.8rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #b8952c;
+    }
+
+    /* --- Gallery --- */
+    .gallery {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #d4af37;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* --- About Section --- */
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #111;
+    }
+
+    .about h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #d4af37;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    /* --- Contact Section --- */
+    .contact {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #d4af37;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact button {
+      background: #d4af37;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #b8952c;
+    }
+
+    .socials {
+      margin-top: 1.5rem;
+      color: #ccc;
+    }
+
+    .socials a {
+      color: #d4af37;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer {
+      background: #0b0b0b;
+      text-align: center;
+      padding: 1rem;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <nav>
       <div class="logo">ZAGGGYWEAR</div>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#gallery">Shop</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>WEAR YOUR ENERGY</h1>
-      <p>
-        ZAGGGYWEAR is more than fashion — it’s identity.  
-        Where street grit meets luxury detail, and every piece tells a story of bold individuality.
-      </p>
+      <h1>WHERE STREET MEETS LUXURY</h1>
+      <p>High-end streetwear crafted for confidence.</p>
       <a href="#gallery" class="btn">Explore the Collection</a>
     </div>
   </section>
 
-  <!-- Gallery Section -->
   <section id="gallery" class="gallery">
     <h2>Latest Drops</h2>
     <div class="grid">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Drop+1" alt="Drop 1">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Drop+2" alt="Drop 2">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Drop+3" alt="Drop 3">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Drop+4" alt="Drop 4">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Drop+5" alt="Drop 5">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Drop+6" alt="Drop 6">
+      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Look+1" alt="Look 1">
+      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Look+2" alt="Look 2">
+      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Look+3" alt="Look 3">
+      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Look+4" alt="Look 4">
+      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Look+5" alt="Look 5">
+      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=Look+6" alt="Look 6">
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="about">
     <h2>About ZAGGGYWEAR</h2>
-    <p>
-      <strong>ZAGGGYWEAR</strong> was born in the streets, designed for the bold, and refined for those who live without apology.  
-      Our style blends raw urban edge with high-end craftsmanship — an expression of hustle, art, and authenticity.  
-      Every thread carries a message: confidence, rebellion, and freedom to create your own lane.
-    </p>
-    <p style="margin-top:20px;">
-      We don’t follow trends. We set them.  
-      From Nairobi to the world — this is urban luxe redefined.
-    </p>
+    <p>Born from the crossroads of street energy and couture precision.  
+       <strong>ZAGGGYWEAR</strong> defines urban luxury through minimal design, premium craftsmanship, and fearless individuality.</p>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="contact">
     <h2>Connect with Us</h2>
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <button type="submit">Send</button>
     </form>
-
     <div class="socials">
       <a href="https://instagram.com/zagggywear" target="_blank">Instagram</a> |
       <a href="https://tiktok.com/@zagggywear" target="_blank">TikTok</a> |
-      <a href="https://twitter.com/zagggywear" target="_blank">Twitter</a>
+      <a href="https://youtube.com/@zagggywearkenya" target="_blank">YouTube</a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined. All Rights Reserved.</p>
+    <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
