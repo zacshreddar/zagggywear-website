@@ -11,19 +11,25 @@
   --transition: all 0.4s ease;
 }
 
-/* ===== CUSTOM FONTS ===== */
+/* ===== CUSTOM FONTS (WOFF2 + WOFF + TTF) ===== */
 @font-face {
   font-family: 'Nabla';
-  src: url('fonts/Nabla.ttf') format('truetype');
+  src: url('fonts/Nabla.woff2') format('woff2'),
+       url('fonts/Nabla.woff') format('woff'),
+       url('fonts/Nabla.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'UnifrakturMaguntia';
-  src: url('fonts/UnifrakturMaguntia.ttf') format('truetype');
+  src: url('fonts/UnifrakturMaguntia.woff2') format('woff2'),
+       url('fonts/UnifrakturMaguntia.woff') format('woff'),
+       url('fonts/UnifrakturMaguntia.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ===== GLOBAL RESETS ===== */
@@ -38,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   color: var(--white);
   background: var(--black);
   line-height: 1.6;
@@ -87,7 +93,7 @@ nav ul {
 nav ul li a {
   color: var(--white);
   text-decoration: none;
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   font-weight: 500;
   transition: var(--transition);
 }
@@ -104,7 +110,7 @@ nav ul li a:hover {
   padding: 0.4rem 0.9rem;
   border-radius: 25px;
   cursor: pointer;
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   font-weight: 600;
   transition: var(--transition);
 }
@@ -216,7 +222,7 @@ nav ul li a:hover {
 }
 
 .btn {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   padding: 0.9rem 2rem;
   border: 2px solid var(--gold);
   color: var(--gold);
@@ -297,7 +303,7 @@ section.visible {
   color: var(--gray);
   font-size: 1.05rem;
   line-height: 1.8;
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
 }
 
 /* ===== CONTACT ===== */
@@ -329,7 +335,7 @@ form textarea {
   border-radius: 10px;
   background: #1a1a1a;
   color: var(--white);
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   font-size: 1rem;
 }
 
@@ -341,7 +347,7 @@ form button {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   transition: var(--transition);
 }
 
@@ -452,28 +458,6 @@ body.luxe footer {
     gap: 1rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
