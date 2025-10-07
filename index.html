@@ -259,7 +259,7 @@
 
   <!-- Hero Section with Video Background and Fallback -->
   <section id="home" class="hero">
-    <video autoplay muted loop playsinline class="bg-video" poster="images/drop1.jpg">
+    <video autoplay muted loop playsinline class="background-video" poster="images/drop1.jpg">
       <source src="images/drop9.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -336,8 +336,23 @@
       appearOnScroll.observe(img);
     });
   </script>
+  <script>
+  const sections = document.querySelectorAll('.gallery, .about, .contact');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 </body>
 </html>
+
 
 
 
