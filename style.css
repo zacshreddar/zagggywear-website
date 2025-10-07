@@ -1,9 +1,5 @@
-/* ============================================
-   ZAGGGYWEAR - URBAN LUXE STYLESHEET
-   ============================================ */
-
 /* ===== FONT IMPORTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Nabla:wght@400&family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=UnifrakturMaguntia&display=swap');
 
 /* ===== BASE COLORS ===== */
 :root {
@@ -14,63 +10,73 @@
   --transition: all 0.4s ease;
 }
 
-/* ===== GLOBAL RESETS ===== */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
+/* ===== BODY ===== */
+body {
+  font-family: 'UnifrakturMaguntia', cursive;
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'UnifrakturMaguntia', cursive;
-  color: var(--white);
-  background: var(--black);
-  line-height: 1.6;
-  transition: background 0.4s ease, color 0.4s ease;
+/* ===== HEADINGS ===== */
+h1, h2, h3, .hero-title, .logo {
+  font-family: 'Nabla', cursive;
+  background: linear-gradient(90deg, var(--gold), #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  transition: var(--transition);
 }
 
-/* ===== HEADER & NAVIGATION ===== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
   width: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(12px);
-  z-index: 10;
-  padding: 1rem 5%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo {
-  font-family: 'Nabla', cursive;
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #c6a664, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+nav .logo {
+  font-size: 2rem;
 }
 
-/* Nav links */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
-  align-items: center;
+  gap: 1.5rem;
 }
 
 nav ul li a {
   color: var(--white);
   text-decoration: none;
-  font-weight: 500;
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 1.2rem;
   transition: var(--transition);
 }
 
@@ -80,229 +86,88 @@ nav ul li a:hover {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  position: relative;
   height: 100vh;
+  background: url('images/drop9.mp4') no-repeat center center/cover;
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
-  overflow: hidden;
-  color: var(--white);
+  padding: 2rem;
 }
 
-.background-video {
+.hero video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
-  filter: brightness(65%) contrast(110%);
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(198, 166, 100, 0.15), rgba(0,0,0,0.7));
   z-index: -1;
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: -1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeIn 2s ease;
-  max-width: 700px;
-  padding: 0 1rem;
 }
 
 .hero h1 {
-  font-family: 'Nabla', cursive;
   font-size: 4rem;
-  background: linear-gradient(180deg, #e5c972, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 4px;
-  text-shadow: 3px 3px 5px rgba(0,0,0,0.8);
+  margin-bottom: 1rem;
 }
 
 .hero p {
-  font-family: 'UnifrakturMaguntia', cursive;
-  margin: 1.2rem 0 2rem;
-  font-size: 1.1rem;
-  color: var(--gray);
+  font-size: 1.5rem;
+  color: var(--white);
 }
 
-.btn {
-  font-family: 'UnifrakturMaguntia', cursive;
-  padding: 0.9rem 2rem;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 2rem;
-  transition: var(--transition);
-}
-
-.btn:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-/* ===== GALLERY ===== */
+/* ===== GALLERY SECTION ===== */
 .gallery {
-  padding: 6rem 5% 4rem;
-  text-align: center;
-}
-
-.gallery h2 {
-  font-family: 'Nabla', cursive;
-  font-size: 2.8rem;
-  background: linear-gradient(90deg, #d4af37, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 2px;
-  margin-bottom: 2.5rem;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-}
-
-.gallery .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  gap: 15px;
+  padding: 4rem 2rem;
+  background: #111;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 12px;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(198, 166, 100, 0.25);
+  box-shadow: 0 4px 20px rgba(198, 166, 100, 0.4);
 }
 
-/* ===== ABOUT ===== */
-.about {
-  padding: 5rem 5%;
-  background: #111;
-  text-align: center;
-}
-
-.about h2 {
-  font-family: 'Nabla', cursive;
-  font-size: 2.6rem;
-  background: linear-gradient(90deg, #c6a664, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-}
-
-.about p {
+/* ===== BUTTONS ===== */
+button, .btn {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
   font-family: 'UnifrakturMaguntia', cursive;
-  max-width: 750px;
-  margin: 0 auto;
-  color: var(--gray);
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* ===== CONTACT ===== */
-.contact {
-  padding: 5rem 5%;
-  text-align: center;
-}
-
-.contact h2 {
-  font-family: 'Nabla', cursive;
-  font-size: 2.6rem;
-  background: linear-gradient(90deg, #d4af37, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-form input,
-form textarea {
-  font-family: 'UnifrakturMaguntia', cursive;
-  padding: 0.8rem;
-  border: 1px solid #333;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 10px;
-  background: #1a1a1a;
-  color: var(--white);
-  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
 }
 
-form button {
-  font-family: 'UnifrakturMaguntia', cursive;
+button:hover, .btn:hover {
   background: var(--gold);
   color: var(--black);
-  border: none;
-  padding: 0.8rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: var(--transition);
-}
-
-form button:hover {
-  background: #d7b978;
-}
-
-.socials a {
-  color: var(--gold);
-  margin: 0 0.5rem;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.socials a:hover {
-  color: var(--white);
 }
 
 /* ===== FOOTER ===== */
 footer {
-  background: #111;
+  background: #000;
   text-align: center;
-  padding: 1rem;
-  color: var(--gray);
+  padding: 2rem;
   font-family: 'UnifrakturMaguntia', cursive;
-  font-size: 0.9rem;
+  color: var(--white);
+  letter-spacing: 1px;
 }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
 
 
 
