@@ -2,7 +2,10 @@
    ZAGGGYWEAR - URBAN LUXE STYLESHEET
    ============================================ */
 
-/* ===== BASE COLORS & FONTS ===== */
+/* ===== FONT IMPORTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nabla:wght@400&family=UnifrakturMaguntia&display=swap');
+
+/* ===== BASE COLORS ===== */
 :root {
   --black: #0b0b0b;
   --white: #f5f5f5;
@@ -23,7 +26,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'UnifrakturMaguntia', cursive;
   color: var(--white);
   background: var(--black);
   line-height: 1.6;
@@ -46,11 +49,14 @@ header {
 }
 
 .logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  color: var(--gold);
-  letter-spacing: 3px;
+  font-family: 'Nabla', cursive;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #c6a664, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 /* Nav links */
@@ -70,59 +76,6 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--gold);
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  padding: 0.4rem 0.9rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.theme-toggle:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-/* ===== MOBILE MENU ===== */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.menu-toggle div {
-  width: 25px;
-  height: 3px;
-  background: var(--gold);
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
 }
 
 /* ===== HERO SECTION ===== */
@@ -148,7 +101,6 @@ nav ul li a:hover {
   filter: brightness(65%) contrast(110%);
 }
 
-/* Soft gold glow */
 .hero::after {
   content: "";
   position: absolute;
@@ -176,18 +128,24 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Nabla', cursive;
   font-size: 4rem;
+  background: linear-gradient(180deg, #e5c972, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: 4px;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.8);
 }
 
 .hero p {
+  font-family: 'UnifrakturMaguntia', cursive;
   margin: 1.2rem 0 2rem;
   font-size: 1.1rem;
   color: var(--gray);
 }
 
 .btn {
+  font-family: 'UnifrakturMaguntia', cursive;
   padding: 0.9rem 2rem;
   border: 2px solid var(--gold);
   color: var(--gold);
@@ -202,31 +160,21 @@ nav ul li a:hover {
   color: var(--black);
 }
 
-/* ===== UNIVERSAL SECTION ANIMATION ===== */
-section {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ===== GALLERY ===== */
 .gallery {
   padding: 6rem 5% 4rem;
-  background: var(--black);
   text-align: center;
 }
 
 .gallery h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Nabla', cursive;
   font-size: 2.8rem;
-  color: var(--gold);
-  margin-bottom: 2.5rem;
+  background: linear-gradient(90deg, #d4af37, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
 
 .gallery .grid {
@@ -254,32 +202,38 @@ section.visible {
 }
 
 .about h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  color: var(--gold);
+  font-family: 'Nabla', cursive;
   font-size: 2.6rem;
+  background: linear-gradient(90deg, #c6a664, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .about p {
+  font-family: 'UnifrakturMaguntia', cursive;
   max-width: 750px;
   margin: 0 auto;
   color: var(--gray);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.8;
 }
 
 /* ===== CONTACT ===== */
 .contact {
   padding: 5rem 5%;
-  background: var(--black);
   text-align: center;
 }
 
 .contact h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  color: var(--gold);
+  font-family: 'Nabla', cursive;
   font-size: 2.6rem;
+  background: linear-gradient(90deg, #d4af37, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
 
 form {
@@ -292,6 +246,7 @@ form {
 
 form input,
 form textarea {
+  font-family: 'UnifrakturMaguntia', cursive;
   padding: 0.8rem;
   border: 1px solid #333;
   border-radius: 10px;
@@ -301,6 +256,7 @@ form textarea {
 }
 
 form button {
+  font-family: 'UnifrakturMaguntia', cursive;
   background: var(--gold);
   color: var(--black);
   border: none;
@@ -332,10 +288,11 @@ footer {
   text-align: center;
   padding: 1rem;
   color: var(--gray);
+  font-family: 'UnifrakturMaguntia', cursive;
   font-size: 0.9rem;
 }
 
-/* ===== ANIMATIONS ===== */
+/* ===== ANIMATION ===== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -347,77 +304,7 @@ footer {
   }
 }
 
-/* ===== LUXE MODE THEME ===== */
-body.luxe {
-  background: var(--white);
-  color: #111;
-}
 
-body.luxe header {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-body.luxe .logo {
-  color: #b59b43;
-}
-
-body.luxe nav ul li a {
-  color: #111;
-}
-
-body.luxe nav ul li a:hover {
-  color: #b59b43;
-}
-
-body.luxe .btn {
-  background: #b59b43;
-  color: #fff;
-}
-
-body.luxe .btn:hover {
-  background: #9d8735;
-}
-
-body.luxe .theme-toggle {
-  border-color: #111;
-  color: #111;
-}
-
-body.luxe .theme-toggle:hover {
-  background: #111;
-  color: var(--white);
-}
-
-body.luxe .gallery,
-body.luxe .contact {
-  background: #f2f2f2;
-}
-
-body.luxe .about {
-  background: #eaeaea;
-}
-
-body.luxe footer {
-  background: #f2f2f2;
-  color: #444;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .gallery h2,
-  .about h2,
-  .contact h2 {
-    font-size: 2rem;
-  }
-
-  nav ul {
-    gap: 1rem;
-  }
-}
 
 
 
