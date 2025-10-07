@@ -9,17 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #0b0b0b;
       color: #f5f5f5;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
-    /* Navbar */
+    /* NAVIGATION */
     header {
       position: sticky;
       top: 0;
@@ -40,23 +39,52 @@
       letter-spacing: 3px;
       text-transform: uppercase;
     }
-    nav ul {
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 2rem;
       margin: 0;
     }
-    nav a {
+    .nav-links a {
       text-decoration: none;
       color: #f5f5f5;
       font-weight: 500;
       transition: color 0.3s ease;
     }
-    nav a:hover {
+    .nav-links a:hover {
       color: #d4af37;
     }
 
-    /* Hero with Video Background */
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: #d4af37;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* HERO SECTION */
     .hero {
       position: relative;
       height: 100vh;
@@ -66,21 +94,19 @@
       text-align: center;
       overflow: hidden;
     }
-    .bg-video {
+    .background-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
-      z-index: 0;
       filter: brightness(65%) contrast(110%);
+      z-index: 0;
     }
     .overlay {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
     .hero-content {
@@ -93,175 +119,109 @@
     }
     .hero-content h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 4.5rem;
+      font-size: 4rem;
       letter-spacing: 4px;
-      margin-bottom: 1rem;
     }
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
-      color: #f1f1f1;
     }
     .btn {
       background: #d4af37;
       color: #000;
       padding: 0.9rem 2rem;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 30px;
       transition: background 0.3s ease;
     }
-    .btn:hover {
-      background: #b8952c;
-    }
+    .btn:hover { background: #b8952c; }
 
-    /* Gallery */
-    .gallery {
-      padding: 5rem 2rem;
-      text-align: center;
-      background-color: #0b0b0b;
-    }
-    .gallery h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      color: #d4af37;
-      margin-bottom: 2rem;
-      letter-spacing: 2px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .grid img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
+    /* SECTIONS ANIMATION BASE */
+    section {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .grid img.visible {
+    section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
-    }
 
-    /* About */
-    .about {
-      padding: 5rem 2rem;
-      background: #111;
-      text-align: center;
-    }
-    .about h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
+    /* DARK/LUXE MODE TOGGLE */
+    .theme-toggle {
+      border: 1px solid #d4af37;
+      background: transparent;
       color: #d4af37;
-      margin-bottom: 1.5rem;
-    }
-    .about p {
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
-      color: #ccc;
-      font-size: 1rem;
-    }
-
-    /* Contact */
-    .contact {
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    .contact h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      color: #d4af37;
-      margin-bottom: 1.5rem;
-    }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    .contact input,
-    .contact textarea {
-      padding: 0.8rem;
-      border: none;
-      border-radius: 5px;
-      font-family: 'Poppins', sans-serif;
-    }
-    .contact button {
-      background: #d4af37;
-      border: none;
-      padding: 0.9rem;
+      padding: 0.5rem 1rem;
       border-radius: 25px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      font-weight: 600;
     }
-    .contact button:hover {
-      background: #b8952c;
-    }
-    .socials {
-      margin-top: 2rem;
-      color: #ccc;
-    }
-    .socials a {
-      color: #d4af37;
-      text-decoration: none;
-      margin: 0 0.6rem;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .socials a:hover {
-      color: #fff;
+    .theme-toggle:hover {
+      background: #d4af37;
+      color: #000;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer {
       background: #0b0b0b;
       text-align: center;
-      padding: 1.2rem;
+      padding: 1rem;
       color: #888;
       font-size: 0.9rem;
-      margin-top: 3rem;
     }
 
-    /* Animations */
+    /* FADE ANIMATION */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* LUXE MODE COLORS */
+    body.luxe {
+      background-color: #f5f5f5;
+      color: #111;
+    }
+    body.luxe header { background: rgba(255,255,255,0.9); }
+    body.luxe .logo { color: #b59b43; }
+    body.luxe .btn { background: #b59b43; color: #fff; }
+    body.luxe .btn:hover { background: #9d8735; }
+    body.luxe .theme-toggle {
+      border-color: #000;
+      color: #000;
+    }
+    body.luxe .theme-toggle:hover {
+      background: #000;
+      color: #f5f5f5;
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
       <div class="logo">ZAGGGYWEAR</div>
-      <ul>
+
+      <div class="menu-toggle" id="mobile-menu">
+        <div></div><div></div><div></div>
+      </div>
+
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><button id="themeToggle" class="theme-toggle">Luxe Mode</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section with Video Background and Fallback -->
+  <!-- HERO -->
   <section id="home" class="hero">
     <video autoplay muted loop playsinline class="background-video" poster="images/drop1.jpg">
       <source src="images/drop9.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <div class="overlay"></div>
     <div class="hero-content">
@@ -271,7 +231,7 @@
     </div>
   </section>
 
-  <!-- Gallery -->
+  <!-- GALLERY -->
   <section id="gallery" class="gallery">
     <h2>Latest Drops</h2>
     <div class="grid">
@@ -286,17 +246,15 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about" class="about">
     <h2>About ZAGGGYWEAR</h2>
-    <p><strong>ZAGGGYWEAR</strong> is a Kenyan-born luxury streetwear label merging raw street culture with refined minimalism.  
-    Each piece tells a story of ambition, rebellion, and creative identity — designed for those who don’t follow trends but set them.  
-    <br><br>
-    From sleek silhouettes to timeless tones, our collections embody urban sophistication with an edge.  
-    This is more than fashion — it’s a movement of self-expression, confidence, and style evolution.</p>
+    <p><strong>ZAGGGYWEAR</strong> is a Kenyan-born luxury streetwear label merging raw street culture with refined minimalism.
+      Each piece tells a story of ambition, rebellion, and creative identity — designed for those who don’t follow trends but set them.
+      From sleek silhouettes to timeless tones, our collections embody urban sophistication with an edge.</p>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Connect With Us</h2>
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -319,39 +277,48 @@
     <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined. Crafted with passion in Kenya.</p>
   </footer>
 
-  <!-- JS for Gallery Animation -->
+  <!-- JS: Scroll Animations + Theme Toggle + Mobile Nav -->
   <script>
-    const galleryImages = document.querySelectorAll('.grid img');
-    const options = { threshold: 0.2 };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    // Smooth section animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
-    }, options);
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
 
-    galleryImages.forEach(img => {
-      appearOnScroll.observe(img);
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('luxe');
+      const isLuxe = body.classList.contains('luxe');
+      themeToggle.textContent = isLuxe ? 'Dark Mode' : 'Luxe Mode';
+      localStorage.setItem('theme', isLuxe ? 'luxe' : 'dark');
+    });
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'luxe') {
+      body.classList.add('luxe');
+      themeToggle.textContent = 'Dark Mode';
+    }
+
+    // Mobile nav toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
   </script>
-  <script>
-  const sections = document.querySelectorAll('.gallery, .about, .contact');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
-</script>
 </body>
 </html>
+
 
 
 
