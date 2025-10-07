@@ -229,7 +229,7 @@ section.visible {
 
 /* ===== GALLERY ===== */
 .gallery {
-  padding: 6rem 5% 4rem;
+  padding: 4rem 5% 3rem; /* Reduced top padding for better homepage spacing */
   background: var(--black);
   text-align: center;
 }
@@ -238,21 +238,22 @@ section.visible {
   font-family: 'Nabla', cursive;
   font-size: 2.8rem;
   color: var(--gold);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem; /* Reduced margin above Latest Drop */
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
 }
 
 .gallery .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Organize images better */
+  gap: 1rem; /* tighter spacing for cleaner grid */
 }
 
 .gallery img {
   width: 100%;
   border-radius: 12px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  object-fit: cover; /* ensures images are uniform */
 }
 
 .gallery img:hover {
@@ -348,7 +349,7 @@ form button:hover {
 footer {
   background: #111;
   text-align: center;
-  padding: 1rem 0; /* Adjusted desktop padding */
+  padding: 1rem 0;
   color: var(--gray);
   font-size: 0.9rem;
 }
@@ -449,6 +450,8 @@ body.luxe footer {
     font-size: 2rem;
   }
 }
+
+
 
 
 
