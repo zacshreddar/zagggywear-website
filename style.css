@@ -1,4 +1,8 @@
-/* ===== FONT & BASE SETUP ===== */
+/* ============================================
+   ZAGGGYWEAR - URBAN LUXE STYLESHEET
+   ============================================ */
+
+/* ===== BASE COLORS & FONTS ===== */
 :root {
   --black: #0b0b0b;
   --white: #f5f5f5;
@@ -7,10 +11,15 @@
   --transition: all 0.4s ease;
 }
 
+/* ===== GLOBAL RESETS ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,17 +27,17 @@ body {
   color: var(--white);
   background: var(--black);
   line-height: 1.6;
-  scroll-behavior: smooth;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* ===== HEADER & NAV ===== */
+/* ===== HEADER & NAVIGATION ===== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
   z-index: 10;
   padding: 1rem 5%;
   display: flex;
@@ -38,16 +47,18 @@ header {
 
 .logo {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--gold);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 
+/* Nav links */
 nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 nav ul li a {
@@ -59,6 +70,59 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--gold);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  padding: 0.4rem 0.9rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ===== MOBILE MENU ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background: var(--gold);
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
 }
 
 /* ===== HERO SECTION ===== */
@@ -84,12 +148,12 @@ nav ul li a:hover {
   filter: brightness(65%) contrast(110%);
 }
 
-/* Subtle gold glow overlay */
+/* Soft gold glow */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(198, 166, 100, 0.15), rgba(0,0,0,0.6));
+  background: linear-gradient(to bottom, rgba(198, 166, 100, 0.15), rgba(0,0,0,0.7));
   z-index: -1;
 }
 
@@ -99,7 +163,7 @@ nav ul li a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.35);
   z-index: -1;
 }
 
@@ -113,9 +177,8 @@ nav ul li a:hover {
 
 .hero h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 3.8rem;
+  font-size: 4rem;
   letter-spacing: 4px;
-  color: var(--white);
 }
 
 .hero p {
@@ -139,24 +202,28 @@ nav ul li a:hover {
   color: var(--black);
 }
 
-/* ===== GALLERY SECTION ===== */
-.gallery {
-  padding: 6rem 5% 4rem;
-  background: var(--black);
-  text-align: center;
+/* ===== UNIVERSAL SECTION ANIMATION ===== */
+section {
   opacity: 0;
-  transform: translateY(50px);
-  transition: var(--transition);
+  transform: translateY(60px);
+  transition: all 0.8s ease;
 }
 
-.gallery.visible {
+section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* ===== GALLERY ===== */
+.gallery {
+  padding: 6rem 5% 4rem;
+  background: var(--black);
+  text-align: center;
+}
+
 .gallery h2 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--gold);
   margin-bottom: 2.5rem;
   letter-spacing: 2px;
@@ -179,26 +246,18 @@ nav ul li a:hover {
   box-shadow: 0 4px 20px rgba(198, 166, 100, 0.25);
 }
 
-/* ===== ABOUT SECTION ===== */
+/* ===== ABOUT ===== */
 .about {
   padding: 5rem 5%;
   background: #111;
   text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: var(--transition);
-}
-
-.about.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .about h2 {
   font-family: 'Bebas Neue', sans-serif;
   color: var(--gold);
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .about p {
@@ -209,25 +268,17 @@ nav ul li a:hover {
   line-height: 1.8;
 }
 
-/* ===== CONTACT SECTION ===== */
+/* ===== CONTACT ===== */
 .contact {
   padding: 5rem 5%;
   background: var(--black);
   text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: var(--transition);
-}
-
-.contact.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .contact h2 {
   font-family: 'Bebas Neue', sans-serif;
   color: var(--gold);
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   margin-bottom: 2rem;
 }
 
@@ -296,16 +347,79 @@ footer {
   }
 }
 
+/* ===== LUXE MODE THEME ===== */
+body.luxe {
+  background: var(--white);
+  color: #111;
+}
+
+body.luxe header {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.luxe .logo {
+  color: #b59b43;
+}
+
+body.luxe nav ul li a {
+  color: #111;
+}
+
+body.luxe nav ul li a:hover {
+  color: #b59b43;
+}
+
+body.luxe .btn {
+  background: #b59b43;
+  color: #fff;
+}
+
+body.luxe .btn:hover {
+  background: #9d8735;
+}
+
+body.luxe .theme-toggle {
+  border-color: #111;
+  color: #111;
+}
+
+body.luxe .theme-toggle:hover {
+  background: #111;
+  color: var(--white);
+}
+
+body.luxe .gallery,
+body.luxe .contact {
+  background: #f2f2f2;
+}
+
+body.luxe .about {
+  background: #eaeaea;
+}
+
+body.luxe footer {
+  background: #f2f2f2;
+  color: #444;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+  }
+
+  .gallery h2,
+  .about h2,
+  .contact h2 {
+    font-size: 2rem;
   }
 
   nav ul {
     gap: 1rem;
   }
 }
+
+
 
 
 
