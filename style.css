@@ -136,18 +136,23 @@ nav ul li a:hover {
 
 @media (max-width: 768px) {
   nav ul {
-    display: flex;          /* Always show links */
-    flex-direction: column; /* Stack vertically */
-    position: static;       /* No absolute positioning */
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
     width: 100%;
-    background: transparent; /* Remove dropdown background */
+    background: rgba(0, 0, 0, 0.95);
     text-align: center;
     padding: 1rem 0;
-    gap: 1rem;
+  }
+
+  nav ul.active {
+    display: flex;
   }
 
   .menu-toggle {
-    display: none; /* Remove hamburger menu */
+    display: flex;
   }
 }
 
@@ -453,6 +458,8 @@ body.luxe footer {
     gap: 1rem;
   }
 }
+
+
 
 
 
