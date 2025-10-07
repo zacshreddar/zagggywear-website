@@ -11,7 +11,7 @@
   --transition: all 0.4s ease;
 }
 
-/* ===== CUSTOM FONTS ===== */
+/* ===== LOCAL FONTS ===== */
 @font-face {
   font-family: 'Nabla';
   src: url('fonts/Nabla.ttf') format('truetype');
@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', sans-serif;
   color: var(--white);
   background: var(--black);
   line-height: 1.6;
@@ -60,23 +60,14 @@ header {
   align-items: center;
 }
 
-/* LOGO */
 .logo {
-  font-family: 'Nabla', cursive;
-  font-weight: 400;
-  font-size: 2.4rem;
+  font-family: 'Nabla', sans-serif;
+  font-size: 2rem;
   color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
-  transition: var(--transition);
 }
 
-.logo:hover {
-  color: #e7ca7a;
-  text-shadow: 0 0 15px rgba(198, 166, 100, 0.5);
-}
-
-/* Nav links */
 nav ul {
   list-style: none;
   display: flex;
@@ -85,6 +76,7 @@ nav ul {
 }
 
 nav ul li a {
+  font-family: 'UnifrakturMaguntia', sans-serif;
   color: var(--white);
   text-decoration: none;
   font-weight: 500;
@@ -95,15 +87,14 @@ nav ul li a:hover {
   color: var(--gold);
 }
 
-/* Theme toggle button */
 .theme-toggle {
+  font-family: 'UnifrakturMaguntia', sans-serif;
   border: 1px solid var(--gold);
   background: transparent;
   color: var(--gold);
   padding: 0.4rem 0.9rem;
   border-radius: 25px;
   cursor: pointer;
-  font-family: 'UnifrakturMaguntia', serif;
   font-weight: 600;
   transition: var(--transition);
 }
@@ -172,7 +163,6 @@ nav ul li a:hover {
   filter: brightness(65%) contrast(110%);
 }
 
-/* Soft gold glow */
 .hero::after {
   content: "";
   position: absolute;
@@ -200,22 +190,20 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-  font-family: 'Nabla', cursive;
-  font-weight: 400;
-  font-size: 36px;
+  font-family: 'Nabla', sans-serif;
+  font-size: 4rem;
   letter-spacing: 4px;
-  color: var(--gold);
-  text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
 }
 
 .hero p {
   margin: 1.2rem 0 2rem;
   font-size: 1.1rem;
   color: var(--gray);
+  font-family: 'UnifrakturMaguntia', sans-serif;
 }
 
 .btn {
-  font-family: 'UnifrakturMaguntia', serif;
+  font-family: 'UnifrakturMaguntia', sans-serif;
   padding: 0.9rem 2rem;
   border: 2px solid var(--gold);
   color: var(--gold);
@@ -230,7 +218,7 @@ nav ul li a:hover {
   color: var(--black);
 }
 
-/* ===== UNIVERSAL SECTION ANIMATION ===== */
+/* ===== SECTION ANIMATIONS ===== */
 section {
   opacity: 0;
   transform: translateY(60px);
@@ -242,124 +230,24 @@ section.visible {
   transform: translateY(0);
 }
 
-/* ===== GALLERY ===== */
-.gallery {
-  padding: 6rem 5% 4rem;
-  background: var(--black);
-  text-align: center;
-}
-
-.gallery h2 {
-  font-family: 'Nabla', cursive;
+/* ===== HEADINGS ===== */
+h2 {
+  font-family: 'Nabla', sans-serif;
   font-size: 2.8rem;
   color: var(--gold);
   margin-bottom: 2.5rem;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
 }
 
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(198, 166, 100, 0.25);
-}
-
-/* ===== ABOUT ===== */
-.about {
-  padding: 5rem 5%;
-  background: #111;
-  text-align: center;
-}
-
-.about h2 {
-  font-family: 'Nabla', cursive;
-  color: var(--gold);
-  font-size: 2.6rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
-}
-
-.about p {
-  max-width: 750px;
-  margin: 0 auto;
-  color: var(--gray);
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-/* ===== CONTACT ===== */
-.contact {
-  padding: 5rem 5%;
-  background: var(--black);
-  text-align: center;
-}
-
-.contact h2 {
-  font-family: 'Nabla', cursive;
-  color: var(--gold);
-  font-size: 2.6rem;
-  margin-bottom: 2rem;
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-form input,
-form textarea {
-  padding: 0.8rem;
-  border: 1px solid #333;
-  border-radius: 10px;
-  background: #1a1a1a;
-  color: var(--white);
-  font-family: 'UnifrakturMaguntia', serif;
-  font-size: 1rem;
-}
-
-form button {
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  padding: 0.8rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  font-family: 'UnifrakturMaguntia', serif;
-  transition: var(--transition);
-}
-
-form button:hover {
-  background: #d7b978;
-}
-
-.socials a {
-  color: var(--gold);
-  margin: 0 0.5rem;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.socials a:hover {
-  color: var(--white);
+/* ===== ABOUT & CONTACT ===== */
+.about p,
+.contact p {
+  font-family: 'UnifrakturMaguntia', sans-serif;
 }
 
 /* ===== FOOTER ===== */
 footer {
+  font-family: 'UnifrakturMaguntia', sans-serif;
   background: #111;
   text-align: center;
   padding: 1rem;
@@ -369,17 +257,11 @@ footer {
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== LUXE MODE THEME ===== */
+/* ===== LUXE MODE ===== */
 body.luxe {
   background: var(--white);
   color: #111;
@@ -436,6 +318,28 @@ body.luxe footer {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .hero h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+  nav ul { gap: 1rem; }
+}
+
+
+body.luxe .gallery,
+body.luxe .contact {
+  background: #f2f2f2;
+}
+
+body.luxe .about {
+  background: #eaeaea;
+}
+
+body.luxe footer {
+  background: #f2f2f2;
+  color: #444;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
   .hero h1 {
     font-size: 2.8rem;
   }
@@ -450,6 +354,7 @@ body.luxe footer {
     gap: 1rem;
   }
 }
+
 
 
 
