@@ -4,198 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZAGGGYWEAR | Urban Luxe Streetwear</title>
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Local Fonts -->
   <style>
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0b0b0b;
-      color: #f5f5f5;
-      transition: background 0.4s ease, color 0.4s ease;
+    @font-face {
+      font-family: 'Nabla';
+      src: url('fonts/Nabla.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
     }
 
-    /* NAVIGATION */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(10px);
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 2rem;
-    }
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      color: #d4af37;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #f5f5f5;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .nav-links a:hover {
-      color: #d4af37;
+    @font-face {
+      font-family: 'UnifrakturMaguntia';
+      src: url('fonts/UnifrakturMaguntia.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
     }
 
-    /* Mobile menu */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: #d4af37;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-      }
-      .nav-links.active { display: flex; }
-      .menu-toggle { display: flex; }
-    }
-
-    /* HERO SECTION */
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
-    .background-video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(65%) contrast(110%);
-      z-index: 0;
-    }
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      max-width: 700px;
-      padding: 0 1rem;
-      animation: fadeInUp 1.6s ease forwards;
-    }
-    .hero-content h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 4rem;
-      letter-spacing: 4px;
-    }
-    .hero-content p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-    .btn {
-      background: #d4af37;
-      color: #000;
-      padding: 0.9rem 2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .btn:hover { background: #b8952c; }
-
-    /* SECTIONS ANIMATION BASE */
-    section {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* DARK/LUXE MODE TOGGLE */
-    .theme-toggle {
-      border: 1px solid #d4af37;
-      background: transparent;
-      color: #d4af37;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 600;
-    }
-    .theme-toggle:hover {
-      background: #d4af37;
-      color: #000;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #0b0b0b;
-      text-align: center;
-      padding: 1rem;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    /* FADE ANIMATION */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* LUXE MODE COLORS */
-    body.luxe {
-      background-color: #f5f5f5;
-      color: #111;
-    }
-    body.luxe header { background: rgba(255,255,255,0.9); }
-    body.luxe .logo { color: #b59b43; }
-    body.luxe .btn { background: #b59b43; color: #fff; }
-    body.luxe .btn:hover { background: #9d8735; }
-    body.luxe .theme-toggle {
-      border-color: #000;
-      color: #000;
-    }
-    body.luxe .theme-toggle:hover {
-      background: #000;
-      color: #f5f5f5;
-    }
+    /* Apply fonts */
+    h1, h2, h3, h4, h5, h6 { font-family: 'Nabla', sans-serif; }
+    body, p, .btn, input, textarea, a { font-family: 'UnifrakturMaguntia', cursive; }
   </style>
 </head>
 
@@ -302,7 +133,6 @@
       localStorage.setItem('theme', isLuxe ? 'luxe' : 'dark');
     });
 
-    // Load saved theme
     if (localStorage.getItem('theme') === 'luxe') {
       body.classList.add('luxe');
       themeToggle.textContent = 'Dark Mode';
@@ -318,6 +148,7 @@
   </script>
 </body>
 </html>
+
 
 
 
