@@ -54,25 +54,33 @@
       color: #d4af37;
     }
 
-    /* Hero */
+    /* Hero Section with Video */
     .hero {
       position: relative;
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1606813902914-0d3baf4f3b5e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
     .overlay {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
     }
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       color: #fff;
       max-width: 700px;
       padding: 0 1rem;
@@ -82,6 +90,8 @@
       font-size: 4.5rem;
       letter-spacing: 4px;
       margin-bottom: 1rem;
+      color: #d4af37;
+      text-transform: uppercase;
     }
     .hero-content p {
       font-size: 1.2rem;
@@ -222,13 +232,17 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Video -->
   <section id="home" class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="images/drop9.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>STREET MEETS LUXURY</h1>
-      <p>ZAGGGYWEAR blends bold design, clean lines, and fearless energy — redefining modern streetwear for those who move with purpose.</p>
-      <a href="#gallery" class="btn">Shop The Vibe</a>
+      <h1>Where Bold Meets Refined</h1>
+      <p>ZAGGGYWEAR merges luxury aesthetics with raw street culture — designed for those who own every step they take.</p>
+      <a href="#gallery" class="btn">Shop the Vibe</a>
     </div>
   </section>
 
@@ -236,12 +250,14 @@
   <section id="gallery" class="gallery">
     <h2>Latest Drops</h2>
     <div class="grid">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=LOOK+1" alt="Look 1">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=LOOK+2" alt="Look 2">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=LOOK+3" alt="Look 3">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=LOOK+4" alt="Look 4">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=LOOK+5" alt="Look 5">
-      <img src="https://via.placeholder.com/350x450/0B0B0B/F5F5F5?text=LOOK+6" alt="Look 6">
+      <img src="images/drop1.jpg" alt="Look 1">
+      <img src="images/drop2.jpg" alt="Look 2">
+      <img src="images/drop3.jpg" alt="Look 3">
+      <img src="images/drop4.jpg" alt="Look 4">
+      <img src="images/drop5.jpg" alt="Look 5">
+      <img src="images/drop6.jpg" alt="Look 6">
+      <img src="images/drop7.jpg" alt="Look 7">
+      <img src="images/drop8.jpg" alt="Look 8">
     </div>
   </section>
 
