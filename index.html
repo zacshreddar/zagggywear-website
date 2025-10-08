@@ -5,23 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZAGGGYWEAR | Urban Luxe Streetwear</title>
 
-  <!-- Custom Fonts -->
-  <style>
-    @font-face {
-      font-family: 'Nabla';
-      src: url('fonts/Nabla.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: 'UnifrakturMaguntia';
-      src: url('fonts/UnifrakturMaguntia.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-    }
-  </style>
-
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -30,29 +13,22 @@
     <nav>
       <div class="logo">ZAGGGYWEAR</div>
 
-      <!-- Mobile menu toggle -->
       <div class="menu-toggle" id="mobile-menu">
         <div></div><div></div><div></div>
       </div>
 
       <ul class="nav-links">
-        <li class="dropdown">
-          <a href="#">Menu</a>
-          <div class="dropdown-content">
-            <a href="#home">Home</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li><button id="themeToggle" class="theme-toggle">Luxe Mode</button></li>
       </ul>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-background"></div>
+  <section id="home" class="hero" style="background: url('images/drop1.jpg') center/cover no-repeat;">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>STREET MEETS LUXURY</h1>
@@ -139,11 +115,6 @@
     const navLinks = document.querySelector('.nav-links');
     mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-    // Dropdown toggle for desktop
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('mouseenter', () => dropdown.classList.add('active'));
-    dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
-
     // Form validation
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function(event) {
@@ -155,4 +126,6 @@
   </script>
 </body>
 </html>
+
+
 
