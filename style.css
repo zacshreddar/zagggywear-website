@@ -188,8 +188,8 @@ nav ul li a:hover {
 .hero h1 {
   font-family: 'Nabla', cursive;
   font-weight: 400;
-  font-size: 36px;
-  letter-spacing: 4px;
+  font-size: 28px;
+  letter-spacing: 3px;
   color: var(--gold);
   text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
 }
@@ -462,6 +462,7 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 }
+
 
 
 
