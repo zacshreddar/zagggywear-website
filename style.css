@@ -49,6 +49,7 @@ body {
   background: var(--black);
   line-height: 1.6;
   transition: background 0.4s ease, color 0.4s ease;
+  position: relative;
 }
 
 /* ===== HEADER & NAV ===== */
@@ -120,18 +121,78 @@ nav ul li a:hover {
   color: var(--black);
 }
 
-/* ===== MOBILE MENU ===== */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
+/* ===== MOBILE HEADER ===== */
+.mobile-header {
+  display: none; /* hidden on desktop */
 }
 
-.menu-toggle div {
-  width: 25px;
-  height: 3px;
-  background: var(--gold);
+@media (max-width: 768px) {
+  /* Hide desktop nav links */
+  nav ul.nav-links {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+
+  header {
+    justify-content: center;
+    padding: 0;
+  }
+
+  /* Mobile logo centered, truncates if needed */
+  .mobile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .mobile-header .logo {
+    font-size: 2.8rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%; /* fit nicely on small screens */
+  }
+
+  /* Remove luxe toggle from under logo */
+  .mobile-header .theme-toggle {
+    display: none;
+  }
+
+  /* Add luxe toggle at bottom of page */
+  .bottom-theme-toggle {
+    display: block;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+  }
+
+  /* Hero adjustments */
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .gallery h2,
+  .about h2,
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
 }
 
 /* ===== HERO SECTION ===== */
@@ -372,67 +433,6 @@ body.luxe .contact p,
 body.luxe .socials p { color: #111; }
 body.luxe footer { background: #f2f2f2; color: #444; }
 
-/* ===== MOBILE HEADER ===== */
-.mobile-header {
-  display: none; /* hidden on desktop */
-}
-
-@media (max-width: 768px) {
-  /* Show mobile header */
-  .mobile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 1rem 0;
-  }
-
-  .mobile-header .logo {
-    font-size: 2.8rem;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .mobile-header .theme-toggle {
-    display: inline-block;
-  }
-
-  /* Hide desktop nav links */
-  nav ul.nav-links {
-    display: none !important;
-  }
-
-  .menu-toggle {
-    display: none !important;
-  }
-
-  header {
-    justify-content: center;
-    padding: 0;
-  }
-
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .gallery h2,
-  .about h2,
-  .contact h2 {
-    font-size: 2rem;
-  }
-
-  .gallery .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  section {
-    padding: 2rem 1rem;
-  }
-}
 
 
 
