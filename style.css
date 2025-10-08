@@ -1,5 +1,5 @@
 /* ============================================
-   ZAGGGYWEAR - URBAN LUXE STYLESHEET (UPDATED)
+   ZAGGGYWEAR - URBAN LUXE STYLESHEET
    ============================================ */
 
 /* ===== BASE COLORS & FONTS ===== */
@@ -11,7 +11,7 @@
   --transition: all 0.4s ease;
 }
 
-/* ===== CUSTOM FONTS ===== */
+/* ===== CUSTOM FONTS (WOFF2 + WOFF + TTF) ===== */
 @font-face {
   font-family: 'Nabla';
   src: url('fonts/Nabla.woff2') format('woff2'),
@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'UnifrakturMaguntia', cursive, serif;
+  font-family: 'UnifrakturMaguntia', cursive, serif; /* fallback included */
   color: var(--white);
   background: var(--black);
   line-height: 1.6;
@@ -62,154 +62,63 @@ header {
   z-index: 10;
   padding: 1rem 5%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* center logo */
   align-items: center;
 }
 
 /* LOGO */
 .logo {
-  font-family: 'Nabla', cursive;
+  font-family: 'Nabla', cursive, serif;
   font-weight: 400;
-  font-size: 2.6rem; /* slightly bigger for better visibility */
+  font-size: 2.8rem; /* slightly bigger for visibility */
   color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
   transition: var(--transition);
-}
-
-.logo:hover {
-  color: #e7ca7a;
-  text-shadow: 0 0 15px rgba(198, 166, 100, 0.5);
-}
-
-/* Gradient shimmer for mobile */
-@keyframes shimmer {
-  0% { background-position: -300% 0; }
-  100% { background-position: 300% 0; }
-}
-
-.logo.shimmer {
-  background: linear-gradient(90deg, #c6a664, #ffe78f, #c6a664, #ffe78f);
-  background-size: 300% 100%;
+  background: linear-gradient(90deg, #c6a664, #fff, #c6a664);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 2.5s infinite linear;
+  animation: shimmer 3s linear infinite;
 }
 
-/* Nav links */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
-nav ul li a {
-  color: var(--white);
-  text-decoration: none;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-nav ul li a:hover {
-  color: var(--gold);
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  padding: 0.4rem 0.9rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.theme-toggle:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-/* ===== MOBILE MENU ===== */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.menu-toggle div {
-  width: 25px;
-  height: 3px;
-  background: var(--gold);
-}
-
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION (DESKTOP ADJUSTMENTS) ===== */
 .hero {
-  position: relative;
-  height: 85vh; /* reduced padding for desktop */
+  height: 95vh; /* increased for bigger homepage presence */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
   color: var(--white);
-}
-
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  filter: brightness(65%) contrast(110%);
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(198, 166, 100, 0.15), rgba(0,0,0,0.7));
-  z-index: -1;
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: -1;
+  font-family: 'Nabla', cursive, serif;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeIn 2s ease;
   max-width: 700px;
-  padding: 0 1rem;
+  padding: 0 2rem; /* less horizontal padding */
+  margin-bottom: 1rem; /* reduces spacing to next section */
 }
 
 .hero h1 {
-  font-family: 'Nabla', cursive;
+  font-family: 'Nabla', cursive, serif;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 4rem;
   letter-spacing: 4px;
   color: var(--gold);
-  text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
+  text-shadow: 0 0 25px rgba(198, 166, 100, 0.5);
 }
 
 .hero p {
-  margin: 1.2rem 0 2rem;
-  font-size: 1.1rem;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+  font-size: 1.2rem;
   color: var(--gray);
+  margin: 1rem 0 1.5rem;
 }
 
 .btn {
@@ -228,6 +137,53 @@ nav ul li a:hover {
   color: var(--black);
 }
 
+/* ===== HIDE NAV & TOGGLE ON MOBILE ===== */
+@media (max-width: 768px) {
+  nav, .menu-toggle, .theme-toggle {
+    display: none; /* hide nav and toggle buttons */
+  }
+
+  header {
+    justify-content: center; /* logo in center */
+  }
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding: 5rem 5%;
+  background: var(--black);
+  text-align: center;
+  position: relative;
+}
+
+.contact h2 {
+  font-family: 'Nabla', cursive, serif;
+  color: var(--gold);
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+/* Dark toggle button at bottom of contact for mobile */
+.contact::after {
+  content: "🌙 Dark Mode";
+  display: block;
+  width: 150px;
+  text-align: center;
+  margin: 2rem auto 0;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--gold);
+  border-radius: 25px;
+  color: var(--gold);
+  cursor: pointer;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+  transition: var(--transition);
+}
+
+.contact::after:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
 /* ===== UNIVERSAL SECTION ANIMATION ===== */
 section {
   opacity: 0;
@@ -240,130 +196,21 @@ section.visible {
   transform: translateY(0);
 }
 
-/* ===== GALLERY ===== */
-.gallery {
-  padding: 6rem 5% 4rem;
-  background: var(--black);
-  text-align: center;
+/* ===== LATEST DROP / FOLLOWING SECTION ===== */
+section.latest-drop {
+  padding-top: 2rem; /* reduce padding from end of homepage */
 }
 
-.gallery h2 {
-  font-family: 'Nabla', cursive;
-  font-size: 2.8rem;
-  color: var(--gold);
-  margin-bottom: 2.5rem;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
-}
-
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(198, 166, 100, 0.25);
-}
-
-/* ===== ABOUT ===== */
-.about {
-  padding: 5rem 5%;
-  background: #111;
-  text-align: center;
-}
-
-.about h2 {
-  font-family: 'Nabla', cursive;
-  color: var(--gold);
-  font-size: 2.6rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
-}
-
-.about p {
-  max-width: 750px;
-  margin: 0 auto;
-  color: var(--gray);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-}
-
-/* ===== CONTACT ===== */
-.contact {
-  padding: 5rem 5%;
-  background: var(--black);
-  text-align: center;
-}
-
+/* ===== GALLERY & ABOUT FONTS ===== */
+.gallery h2,
+.about h2,
 .contact h2 {
-  font-family: 'Nabla', cursive;
-  color: var(--gold);
-  font-size: 2.6rem;
-  margin-bottom: 2rem;
+  font-family: 'Nabla', cursive, serif;
 }
 
-form {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-form input,
-form textarea {
-  padding: 0.8rem;
-  border: 1px solid #333;
-  border-radius: 10px;
-  background: #1a1a1a;
-  color: var(--white);
+.about p,
+.contact p {
   font-family: 'UnifrakturMaguntia', cursive, serif;
-  font-size: 1rem;
-}
-
-form button {
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  padding: 0.8rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  transition: var(--transition);
-}
-
-form button:hover {
-  background: #d7b978;
-}
-
-/* Mobile dark mode toggle at bottom */
-.contact .mobile-theme-toggle {
-  display: none;
-  margin-top: 2rem;
-  padding: 0.6rem 1.5rem;
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  border-radius: 25px;
-  cursor: pointer;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.contact .mobile-theme-toggle:hover {
-  background: var(--gold);
-  color: var(--black);
 }
 
 /* ===== FOOTER ===== */
@@ -373,12 +220,6 @@ footer {
   padding: 1rem;
   color: var(--gray);
   font-size: 0.9rem;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== LUXE MODE THEME ===== */
@@ -391,50 +232,33 @@ body.luxe header {
   background: rgba(255, 255, 255, 0.9);
 }
 
-body.luxe .logo { color: #b59b43; }
-body.luxe nav ul li a { color: #111; }
-body.luxe nav ul li a:hover { color: #b59b43; }
-body.luxe .btn { background: #b59b43; color: #fff; }
-body.luxe .btn:hover { background: #9d8735; }
-body.luxe .theme-toggle { border-color: #111; color: #111; }
-body.luxe .theme-toggle:hover { background: #111; color: var(--white); }
-body.luxe .gallery,
-body.luxe .contact { background: #f2f2f2; }
-body.luxe .about { background: #eaeaea; }
-body.luxe footer { background: #f2f2f2; color: #444; }
+body.luxe .logo {
+  color: #b59b43;
+}
+
+body.luxe .btn {
+  background: #b59b43;
+  color: #fff;
+}
+
+body.luxe .btn:hover {
+  background: #9d8735;
+}
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-
-  /* Hero text resize */
-  .hero h1 { font-size: 2.8rem; }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
 
   .gallery h2,
   .about h2,
-  .contact h2 { font-size: 2rem; }
-
-  /* Center logo on top with shimmer */
-  header {
-    justify-content: center;
-    padding: 1rem 5%;
+  .contact h2 {
+    font-size: 2rem;
   }
-  .logo {
-    font-size: 3rem;
-    text-align: center;
-  }
-
-  /* Hide nav, menu toggle, desktop theme toggle */
-  nav, .menu-toggle, .theme-toggle { display: none; }
-
-  /* Mobile gallery 2 per row */
-  .gallery .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  /* Mobile dark mode toggle at bottom */
-  .contact .mobile-theme-toggle { display: inline-block; }
 }
+
+
 
 
 
