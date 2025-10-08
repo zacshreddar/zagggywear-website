@@ -463,7 +463,7 @@ body.luxe footer {
 
   /* make hero and text smaller for mobile */
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .gallery h2,
@@ -481,6 +481,42 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 }
+
+/* ===== LUXE TOGGLE AT BOTTOM ===== */
+.luxe-toggle-bottom {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.luxe-toggle-bottom:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* toggle color behavior */
+body.luxe-mode .luxe-toggle-bottom {
+  color: #000;
+  border-color: #000;
+}
+
+body.luxe-mode .luxe-toggle-bottom:hover {
+  background: #000;
+  color: var(--gold);
+}
+
+
 
 
 
