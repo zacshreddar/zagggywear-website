@@ -197,7 +197,7 @@ nav ul li a:hover {
 .hero p {
   margin: 1.2rem 0 2rem;
   font-size: 1.1rem;
-  color: var(--gray);
+  color: var(--white);
 }
 
 .btn {
@@ -462,6 +462,7 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 }
+
 
 
 
