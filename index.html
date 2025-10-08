@@ -4,19 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZAGGGYWEAR | Urban Luxe Streetwear</title>
-
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <!-- Mobile header wrapper -->
+    <!-- MOBILE HEADER -->
     <div class="mobile-header">
       <div class="logo">ZagggyWear</div>
-      <button id="themeToggle" class="theme-toggle">Luxe Mode</button>
     </div>
 
+    <!-- DESKTOP NAVIGATION -->
     <nav>
+      <div class="logo desktop-only">ZagggyWear</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#gallery">Gallery</a></li>
@@ -29,7 +28,7 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section id="home" class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
@@ -39,7 +38,7 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERY SECTION -->
   <section id="gallery" class="gallery">
     <h2>Latest Drops</h2>
     <div class="grid">
@@ -54,7 +53,7 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="about">
     <h2>About ZAGGGYWEAR</h2>
     <p><strong>ZAGGGYWEAR</strong> is a Kenyan-born luxury streetwear label merging raw street culture with refined minimalism.
@@ -62,7 +61,7 @@
       From sleek silhouettes to timeless tones, our collections embody urban sophistication with an edge.</p>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT SECTION -->
   <section id="contact" class="contact">
     <h2>Connect With Us</h2>
     <form id="contactForm" action="https://formspree.io/f/mgvnlkvq" method="POST">
@@ -81,13 +80,18 @@
     </div>
   </section>
 
+  <!-- THEME TOGGLE (BOTTOM FOR MOBILE) -->
+  <div class="bottom-toggle">
+    <button id="themeToggle" class="theme-toggle">Luxe Mode</button>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined. Crafted with passion in Kenya.</p>
   </footer>
 
   <!-- JS -->
   <script>
-    // Section animations
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -112,12 +116,12 @@
       themeToggle.textContent = 'Dark Mode';
     }
 
-    // Mobile nav toggle
+    // Mobile menu
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-    // Form validation
+    // Contact form validation
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function(event) {
       if (!contactForm.checkValidity()) {
@@ -128,6 +132,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
