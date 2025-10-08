@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'UnifrakturMaguntia', cursive, serif; /* fallback cursive */
+  font-family: 'UnifrakturMaguntia', cursive, serif;
   color: var(--white);
   background: var(--black);
   line-height: 1.6;
@@ -68,14 +68,13 @@ header {
 
 /* LOGO */
 .logo {
-  font-family: 'Nabla', cursive, serif;
+  font-family: 'Nabla', cursive;
   font-weight: 400;
   font-size: 2.4rem;
   color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
   transition: var(--transition);
-  text-align: center; /* center on mobile */
 }
 
 .logo:hover {
@@ -135,70 +134,16 @@ nav ul li a:hover {
   background: var(--gold);
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    display: none !important; /* hide menu */
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  .menu-toggle {
-    display: none !important; /* hide hamburger */
-  }
-
-  .logo {
-    font-size: 2.8rem;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-shadow: 0 0 10px rgba(198, 166, 100, 0.7);
-    margin: 0 auto; /* center logo */
-  }
-
-  /* Dark toggle button after contacts */
-  .contact::after {
-    content: "";
-    display: block;
-    width: 100%;
-    margin-top: 2rem;
-  }
-
-  .mobile-theme-toggle {
-    display: block;
-    margin: 2rem auto 0 auto;
-    border: 1px solid var(--gold);
-    background: transparent;
-    color: var(--gold);
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-family: 'UnifrakturMaguntia', cursive, serif;
-    font-weight: 600;
-    text-align: center;
-    transition: var(--transition);
-  }
-
-  .mobile-theme-toggle:hover {
-    background: var(--gold);
-    color: var(--black);
-  }
-}
-
 /* ===== HERO SECTION ===== */
 .hero {
-  height: 95vh; /* desktop larger homepage */
+  position: relative;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
   color: var(--white);
-  font-family: 'Nabla', cursive, serif;
 }
 
 .background-video {
@@ -235,25 +180,39 @@ nav ul li a:hover {
   position: relative;
   z-index: 2;
   animation: fadeIn 2s ease;
-  max-width: 700px;
-  padding: 0 2rem; /* reduced horizontal padding */
-  margin-bottom: 1rem; /* reduce spacing to Latest Drop */
+  max-width: 900px; /* reduced padding effect for desktop */
+  padding: 0 1rem;
 }
 
 .hero h1 {
-  font-family: 'Nabla', cursive, serif;
+  font-family: 'Nabla', cursive;
   font-weight: 400;
-  font-size: 4rem; /* larger for desktop */
+  font-size: 36px;
   letter-spacing: 4px;
   color: var(--gold);
-  text-shadow: 0 0 25px rgba(198, 166, 100, 0.5);
+  text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
 }
 
 .hero p {
-  margin: 1rem 0 1.5rem;
-  font-size: 1.2rem;
+  margin: 1.2rem 0 2rem;
+  font-size: 1.1rem;
   color: var(--gray);
+}
+
+.btn {
   font-family: 'UnifrakturMaguntia', cursive, serif;
+  padding: 0.9rem 2rem;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 2rem;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--black);
 }
 
 /* ===== UNIVERSAL SECTION ANIMATION ===== */
@@ -268,22 +227,18 @@ section.visible {
   transform: translateY(0);
 }
 
-section.latest-drop {
-  padding-top: 2rem; /* less space after hero */
-}
-
 /* ===== GALLERY ===== */
 .gallery {
-  padding: 6rem 5% 4rem;
+  padding: 4rem 5%; /* reduced top padding for desktop */
   background: var(--black);
   text-align: center;
 }
 
 .gallery h2 {
-  font-family: 'Nabla', cursive, serif;
+  font-family: 'Nabla', cursive;
   font-size: 2.8rem;
   color: var(--gold);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
 }
@@ -313,7 +268,7 @@ section.latest-drop {
 }
 
 .about h2 {
-  font-family: 'Nabla', cursive, serif;
+  font-family: 'Nabla', cursive;
   color: var(--gold);
   font-size: 2.6rem;
   margin-bottom: 1.5rem;
@@ -337,7 +292,7 @@ section.latest-drop {
 }
 
 .contact h2 {
-  font-family: 'Nabla', cursive, serif;
+  font-family: 'Nabla', cursive;
   color: var(--gold);
   font-size: 2.6rem;
   margin-bottom: 2rem;
@@ -467,20 +422,56 @@ body.luxe footer {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  /* Center logo and hide nav/menu toggle */
+  header {
+    justify-content: center;
+    padding: 1rem 0;
+    position: relative;
+  }
+
+  .logo {
+    font-size: 3rem;
+    display: block;
+    text-align: center;
+    z-index: 20;
+  }
+
+  nav, .menu-toggle {
+    display: none !important;
+  }
+
+  .theme-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
+  }
+
+  /* Hero adjustments */
   .hero h1 {
     font-size: 2.8rem;
   }
 
+  /* Section headings */
   .gallery h2,
   .about h2,
   .contact h2 {
     font-size: 2rem;
   }
 
-  nav ul {
+  /* Gallery images: 2 per row */
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+
+  section {
+    padding: 2rem 1rem;
+  }
 }
+
+
 
 
 
