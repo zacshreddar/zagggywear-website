@@ -1,133 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZAGGGYWEAR | Urban Luxe Streetwear</title>
-
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAGGGYWEAR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Desktop Header -->
   <header>
-    <!-- Mobile header wrapper -->
-    <div class="mobile-header">
-      <div class="logo">ZagggyWear</div>
-      <button id="themeToggle" class="theme-toggle">Luxe Mode</button>
-    </div>
-
+    <div class="logo">ZAGGGYWEAR</div>
     <nav>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#gallery">Shop</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="menu-toggle" id="mobile-menu">
-        <div></div><div></div><div></div>
-      </div>
     </nav>
+    <button class="theme-toggle">LUXE MODE</button>
   </header>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
+  <!-- Mobile Header -->
+  <div class="mobile-header">
+    <div class="logo">ZAGGGYWEAR</div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>STREET MEETS LUXURY</h1>
-      <p>ZAGGGYWEAR merges raw Kenyan street energy with sleek design — defining a new era of urban fashion built for confidence and attitude.</p>
-      <a href="#gallery" class="btn">Shop The Vibe</a>
+      <h1>Hybrid Urban Luxe</h1>
+      <p>Step into the streets with unmatched style.</p>
+      <a href="#gallery" class="btn">Explore Collection</a>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="gallery">
+  <!-- Gallery / Latest Drops -->
+  <section class="gallery" id="gallery">
     <h2>Latest Drops</h2>
     <div class="grid">
       <img src="images/drop1.jpg" alt="Drop 1">
       <img src="images/drop2.jpg" alt="Drop 2">
       <img src="images/drop3.jpg" alt="Drop 3">
       <img src="images/drop4.jpg" alt="Drop 4">
-      <img src="images/drop5.jpg" alt="Drop 5">
-      <img src="images/drop6.jpg" alt="Drop 6">
-      <img src="images/drop7.jpg" alt="Drop 7">
-      <img src="images/drop8.jpg" alt="Drop 8">
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <h2>About ZAGGGYWEAR</h2>
-    <p><strong>ZAGGGYWEAR</strong> is a Kenyan-born luxury streetwear label merging raw street culture with refined minimalism.
-      Each piece tells a story of ambition, rebellion, and creative identity — designed for those who don’t follow trends but set them.
-      From sleek silhouettes to timeless tones, our collections embody urban sophistication with an edge.</p>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>ZAGGGYWEAR is a hybrid urban luxe brand that merges street culture with sophisticated designs. Our mission is to create timeless pieces for those who dare to stand out. We value quality, originality, and sustainability.</p>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Connect With Us</h2>
-    <form id="contactForm" action="https://formspree.io/f/mgvnlkvq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" rows="4" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-
     <div class="socials">
-      <p>Follow ZAGGGYWEAR for exclusive drops & behind-the-scenes looks:</p>
-      <a href="https://instagram.com/zagggywear" target="_blank">Instagram</a> |
-      <a href="https://tiktok.com/@zagggywear" target="_blank">TikTok</a> |
-      <a href="https://twitter.com/zagggywear" target="_blank">Twitter</a> |
-      <a href="https://youtube.com/@zagggybabyyy" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/zagggywear" target="_blank">Instagram</a>
+      <a href="https://www.twitter.com/zagggywear" target="_blank">Twitter</a>
+      <a href="https://www.tiktok.com/@zagggywear" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@zagggywearkenya" target="_blank">YouTube</a>
     </div>
   </section>
 
+  <!-- Mobile Luxe Mode Toggle -->
+  <button class="theme-toggle bottom-theme-toggle">LUXE MODE</button>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined. Crafted with passion in Kenya.</p>
+    &copy; 2025 ZAGGGYWEAR. All Rights Reserved.
   </footer>
 
-  <!-- JS -->
+  <!-- JS for Theme Toggle -->
   <script>
-    // Section animations
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    const themeToggles = document.querySelectorAll('.theme-toggle');
+    themeToggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('luxe');
       });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-
-    // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('luxe');
-      themeToggle.textContent = body.classList.contains('luxe') ? 'Dark Mode' : 'Luxe Mode';
-      localStorage.setItem('theme', body.classList.contains('luxe') ? 'luxe' : 'dark');
-    });
-    if (localStorage.getItem('theme') === 'luxe') {
-      body.classList.add('luxe');
-      themeToggle.textContent = 'Dark Mode';
-    }
-
-    // Mobile nav toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-    // Form validation
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(event) {
-      if (!contactForm.checkValidity()) {
-        event.preventDefault();
-        alert('Please fill out all fields before submitting.');
-      }
     });
   </script>
 </body>
 </html>
+
 
 
 
