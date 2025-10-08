@@ -164,15 +164,39 @@ nav ul li a:hover {
     display: none;
   }
 
-  /* Add luxe toggle at bottom of page */
+  /* ===== Mobile Luxe Mode Toggle ===== */
+.bottom-theme-toggle {
+  display: block;
+  position: fixed;
+  bottom: 20px;              /* slight lift from bottom edge */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;             /* high z-index to appear above everything */
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 2px solid var(--gold);
+  background: var(--black);   /* visible on dark background */
+  color: var(--gold);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: all 0.4s ease;
+}
+
+.bottom-theme-toggle:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* Hide this toggle on desktop */
+@media (min-width: 769px) {
   .bottom-theme-toggle {
-    display: block;
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
+    display: none;
   }
+}
 
   /* Hero adjustments */
   .hero h1 {
@@ -432,6 +456,7 @@ body.luxe .about p,
 body.luxe .contact p,
 body.luxe .socials p { color: #111; }
 body.luxe footer { background: #f2f2f2; color: #444; }
+
 
 
 
