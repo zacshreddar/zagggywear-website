@@ -70,7 +70,7 @@ header {
 .logo {
   font-family: 'Nabla', cursive;
   font-weight: 400;
-  font-size: 2.4rem;
+  font-size: 2.6rem; /* slightly bigger */
   color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -144,6 +144,7 @@ nav ul li a:hover {
   text-align: center;
   overflow: hidden;
   color: var(--white);
+  padding-top: 3rem; /* reduce top padding for desktop hero */
 }
 
 .background-video {
@@ -229,7 +230,7 @@ section.visible {
 
 /* ===== GALLERY ===== */
 .gallery {
-  padding: 4rem 5% 3rem; /* Reduced top padding for better homepage spacing */
+  padding: 6rem 5% 4rem;
   background: var(--black);
   text-align: center;
 }
@@ -238,22 +239,21 @@ section.visible {
   font-family: 'Nabla', cursive;
   font-size: 2.8rem;
   color: var(--gold);
-  margin-bottom: 2rem; /* Reduced margin above Latest Drop */
+  margin-bottom: 2.5rem;
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
 }
 
 .gallery .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Organize images better */
-  gap: 1rem; /* tighter spacing for cleaner grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .gallery img {
   width: 100%;
   border-radius: 12px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  object-fit: cover; /* ensures images are uniform */
 }
 
 .gallery img:hover {
@@ -349,7 +349,7 @@ form button:hover {
 footer {
   background: #111;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem;
   color: var(--gray);
   font-size: 0.9rem;
 }
@@ -423,21 +423,24 @@ body.luxe footer {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-  /* Mobile: hide nav/menu */
-  nav ul,
-  .theme-toggle,
-  .menu-toggle {
-    display: none !important;
-  }
-
-  /* Center logo and increase size */
   header {
-    justify-content: center;
+    justify-content: center; /* center logo */
     padding: 1rem 0;
   }
 
   .logo {
-    font-size: 2.6rem;
+    font-size: 3rem; /* bigger logo */
+  }
+
+  nav, .menu-toggle {
+    display: none !important; /* hide nav & hamburger */
+  }
+
+  .theme-toggle {
+    display: block; /* show theme toggle */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 
   .hero h1 {
@@ -449,7 +452,18 @@ body.luxe footer {
   .contact h2 {
     font-size: 2rem;
   }
+
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
+    gap: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
 }
+
+
 
 
 
