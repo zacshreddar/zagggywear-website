@@ -188,8 +188,8 @@ nav ul li a:hover {
 .hero h1 {
   font-family: 'Nabla', cursive;
   font-weight: 400;
-  font-size: 28px;
-  letter-spacing: 3px;
+  font-size: 36px;
+  letter-spacing: 4px;
   color: var(--gold);
   text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
 }
@@ -421,49 +421,30 @@ body.luxe footer {
   color: #444;
 }
 
-/* ===== MOBILE HEADER STYLING ===== */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   header {
-    flex-direction: column; /* stack elements vertically */
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 0 2.5rem; /* more breathing space */
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
+    justify-content: center; /* center logo */
+    padding: 1rem 0;
   }
 
   .logo {
-    font-size: 3rem;
-    text-align: center;
-    letter-spacing: 4px;
-    line-height: 1.2;
-    color: var(--gold);
+    font-size: 3rem; /* bigger logo */
   }
 
   nav, .menu-toggle {
-    display: none !important; /* hide menu on mobile */
+    display: none !important; /* hide nav & hamburger */
   }
 
   .theme-toggle {
-    position: static; /* remove absolute positioning */
-    margin-top: 0.8rem; /* spacing below logo */
-    display: inline-block;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    transition: var(--transition);
+    display: block; /* show theme toggle */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 
-  .theme-toggle:hover {
-    background: var(--gold);
-    color: var(--black);
-  }
-
-  /* make hero and text smaller for mobile */
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
   }
 
   .gallery h2,
@@ -473,7 +454,7 @@ body.luxe footer {
   }
 
   .gallery .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
     gap: 1rem;
   }
 
@@ -481,42 +462,6 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 }
-
-/* ===== LUXE TOGGLE AT BOTTOM ===== */
-.luxe-toggle-bottom {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  padding: 0.6rem 1.5rem;
-  border-radius: 30px;
-  font-family: 'UnifrakturMaguntia', cursive;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: var(--transition);
-  z-index: 1000;
-}
-
-.luxe-toggle-bottom:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-/* toggle color behavior */
-body.luxe-mode .luxe-toggle-bottom {
-  color: #000;
-  border-color: #000;
-}
-
-body.luxe-mode .luxe-toggle-bottom:hover {
-  background: #000;
-  color: var(--gold);
-}
-
-
 
 
 
