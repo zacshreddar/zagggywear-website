@@ -1,5 +1,5 @@
 /* ============================================
-   ZAGGGYWEAR - URBAN LUXE STYLESHEET
+   ZAGGGYWEAR - HYBRID URBAN LUXE STYLESHEET
    ============================================ */
 
 /* ===== BASE COLORS & FONTS ===== */
@@ -11,7 +11,7 @@
   --transition: all 0.4s ease;
 }
 
-/* ===== CUSTOM FONTS (WOFF2 + WOFF + TTF) ===== */
+/* ===== CUSTOM FONTS ===== */
 @font-face {
   font-family: 'Nabla';
   src: url('fonts/Nabla.woff2') format('woff2'),
@@ -51,7 +51,7 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/* ===== HEADER & NAV ===== */
 header {
   position: fixed;
   top: 0;
@@ -70,7 +70,7 @@ header {
 .logo {
   font-family: 'Nabla', cursive;
   font-weight: 400;
-  font-size: 2.6rem; /* slightly bigger */
+  font-size: 2.6rem;
   color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -82,7 +82,7 @@ header {
   text-shadow: 0 0 15px rgba(198, 166, 100, 0.5);
 }
 
-/* Nav links */
+/* NAV LINKS */
 nav ul {
   list-style: none;
   display: flex;
@@ -102,7 +102,7 @@ nav ul li a:hover {
   color: var(--gold);
 }
 
-/* Theme toggle button */
+/* THEME TOGGLE */
 .theme-toggle {
   border: 1px solid var(--gold);
   background: transparent;
@@ -144,13 +144,12 @@ nav ul li a:hover {
   text-align: center;
   overflow: hidden;
   color: var(--white);
-  padding-top: 3rem; /* reduce top padding for desktop hero */
+  padding-top: 3rem;
 }
 
 .background-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -158,7 +157,6 @@ nav ul li a:hover {
   filter: brightness(65%) contrast(110%);
 }
 
-/* Soft gold glow */
 .hero::after {
   content: "";
   position: absolute;
@@ -169,8 +167,7 @@ nav ul li a:hover {
 
 .hero .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.35);
@@ -216,7 +213,7 @@ nav ul li a:hover {
   color: var(--black);
 }
 
-/* ===== UNIVERSAL SECTION ANIMATION ===== */
+/* ===== SECTIONS ANIMATION ===== */
 section {
   opacity: 0;
   transform: translateY(60px);
@@ -231,7 +228,6 @@ section.visible {
 /* ===== GALLERY ===== */
 .gallery {
   padding: 6rem 5% 4rem;
-  background: var(--black);
   text-align: center;
 }
 
@@ -264,7 +260,6 @@ section.visible {
 /* ===== ABOUT ===== */
 .about {
   padding: 5rem 5%;
-  background: #111;
   text-align: center;
 }
 
@@ -282,13 +277,11 @@ section.visible {
   color: var(--gray);
   font-size: 1.05rem;
   line-height: 1.8;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
 }
 
 /* ===== CONTACT ===== */
 .contact {
   padding: 5rem 5%;
-  background: var(--black);
   text-align: center;
 }
 
@@ -314,7 +307,6 @@ form textarea {
   border-radius: 10px;
   background: #1a1a1a;
   color: var(--white);
-  font-family: 'UnifrakturMaguntia', cursive, serif;
   font-size: 1rem;
 }
 
@@ -326,7 +318,6 @@ form button {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
   transition: var(--transition);
 }
 
@@ -356,17 +347,11 @@ footer {
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== LUXE MODE THEME ===== */
+/* ===== LUXE MODE ===== */
 body.luxe {
   background: var(--white);
   color: #111;
@@ -376,92 +361,30 @@ body.luxe header {
   background: rgba(255, 255, 255, 0.9);
 }
 
-body.luxe .logo {
-  color: #b59b43;
-}
+body.luxe .logo { color: #b59b43; }
+body.luxe nav ul li a { color: #111; }
+body.luxe nav ul li a:hover { color: #b59b43; }
+body.luxe .btn { background: #b59b43; color: #fff; }
+body.luxe .btn:hover { background: #9d8735; }
+body.luxe .theme-toggle { border-color: #111; color: #111; }
+body.luxe .theme-toggle:hover { background: #111; color: var(--white); }
+body.luxe .gallery, body.luxe .contact { background: #f2f2f2; }
+body.luxe .about { background: #eaeaea; }
+body.luxe footer { background: #f2f2f2; color: #444; }
 
-body.luxe nav ul li a {
-  color: #111;
-}
-
-body.luxe nav ul li a:hover {
-  color: #b59b43;
-}
-
-body.luxe .btn {
-  background: #b59b43;
-  color: #fff;
-}
-
-body.luxe .btn:hover {
-  background: #9d8735;
-}
-
-body.luxe .theme-toggle {
-  border-color: #111;
-  color: #111;
-}
-
-body.luxe .theme-toggle:hover {
-  background: #111;
-  color: var(--white);
-}
-
-body.luxe .gallery,
-body.luxe .contact {
-  background: #f2f2f2;
-}
-
-body.luxe .about {
-  background: #eaeaea;
-}
-
-body.luxe footer {
-  background: #f2f2f2;
-  color: #444;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  header {
-    justify-content: center; /* center logo */
-    padding: 1rem 0;
-  }
-
-  .logo {
-    font-size: 3rem; /* bigger logo */
-  }
-
-  nav, .menu-toggle {
-    display: none !important; /* hide nav & hamburger */
-  }
-
-  .theme-toggle {
-    display: block; /* show theme toggle */
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .gallery h2,
-  .about h2,
-  .contact h2 {
-    font-size: 2rem;
-  }
-
-  .gallery .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
-    gap: 1rem;
-  }
-
-  section {
-    padding: 2rem 1rem;
-  }
+  header { justify-content: center; padding: 1rem 0; }
+  .logo { font-size: 3rem; }
+  nav, .menu-toggle { display: none !important; }
+  .theme-toggle { display: block; position: absolute; top: 1rem; right: 1rem; }
+  .hero h1 { font-size: 2.8rem; }
+  .gallery h2, .about h2, .contact h2 { font-size: 2rem; }
+  .gallery .grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  section { padding: 2rem 1rem; }
 }
+
+
 
 
 
