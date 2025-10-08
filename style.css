@@ -425,7 +425,7 @@ body.luxe footer {
 @media (max-width: 768px) {
   header {
     justify-content: center; /* center logo */
-    padding: 1rem 0;
+    padding: 0rem 0;
   }
 
   .logo {
@@ -444,7 +444,7 @@ body.luxe footer {
   }
 
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .gallery h2,
@@ -459,9 +459,10 @@ body.luxe footer {
   }
 
   section {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
 }
+
 
 
 
