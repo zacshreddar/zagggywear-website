@@ -1,58 +1,4 @@
-/* ============================================
-   ZAGGGYWEAR - HYBRID URBAN LUXE STYLESHEET
-   ============================================ */
-
-/* ===== BASE COLORS & FONTS ===== */
-:root {
-  --black: #0b0b0b;
-  --white: #f5f5f5;
-  --gold: #c6a664;
-  --gray: #999;
-  --transition: all 0.4s ease;
-}
-
-/* ===== CUSTOM FONTS ===== */
-@font-face {
-  font-family: 'Nabla';
-  src: url('fonts/Nabla.woff2') format('woff2'),
-       url('fonts/Nabla.woff') format('woff'),
-       url('fonts/Nabla.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'UnifrakturMaguntia';
-  src: url('fonts/UnifrakturMaguntia.woff2') format('woff2'),
-       url('fonts/UnifrakturMaguntia.woff') format('woff'),
-       url('fonts/UnifrakturMaguntia.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ===== GLOBAL RESETS ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  color: var(--white);
-  background: var(--black);
-  line-height: 1.6;
-  transition: background 0.4s ease, color 0.4s ease;
-  position: relative;
-}
-
-/* ===== HEADER & NAV ===== */
+/* ===== DESKTOP LOGO & NAV ===== */
 header {
   position: fixed;
   top: 0;
@@ -67,7 +13,6 @@ header {
   align-items: center;
 }
 
-/* LOGO */
 .logo {
   font-family: 'Nabla', cursive;
   font-weight: 400;
@@ -81,44 +26,6 @@ header {
 .logo:hover {
   color: #e7ca7a;
   text-shadow: 0 0 15px rgba(198, 166, 100, 0.5);
-}
-
-/* NAV LINKS */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-nav ul li a {
-  color: var(--white);
-  text-decoration: none;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-nav ul li a:hover {
-  color: var(--gold);
-}
-
-/* THEME TOGGLE */
-.theme-toggle {
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  padding: 0.4rem 0.9rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.theme-toggle:hover {
-  background: var(--gold);
-  color: var(--black);
 }
 
 /* ===== MOBILE HEADER ===== */
@@ -156,15 +63,21 @@ nav ul li a:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 90%; /* fit nicely on small screens */
   }
 
-  /* Remove luxe toggle from under logo */
+  /* Remove luxe toggle from under logo on mobile */
   .mobile-header .theme-toggle {
     display: none;
   }
 
   /* Add luxe toggle at bottom of page */
+  body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 60px; /* space for toggle */
+  }
+
   .bottom-theme-toggle {
     display: block;
     position: fixed;
@@ -194,244 +107,6 @@ nav ul li a:hover {
     padding: 2rem 1rem;
   }
 }
-
-/* ===== HERO SECTION ===== */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  color: var(--white);
-  padding-top: 3rem;
-  background: url('images/drop1.jpg') center/cover no-repeat; /* homepage background */
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(198, 166, 100, 0.15), rgba(0,0,0,0.7));
-  z-index: -1;
-}
-
-.hero .overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: -1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeIn 2s ease;
-  max-width: 700px;
-  padding: 0 1rem;
-}
-
-.hero h1 {
-  font-family: 'Nabla', cursive;
-  font-weight: 400;
-  font-size: 36px;
-  letter-spacing: 4px;
-  color: var(--gold);
-  text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
-}
-
-.hero p {
-  margin: 1.2rem 0 2rem;
-  font-size: 1.1rem;
-  color: var(--white);
-}
-
-.btn {
-  font-family: 'UnifrakturMaguntia', cursive, serif;
-  padding: 0.9rem 2rem;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 2rem;
-  transition: var(--transition);
-}
-
-.btn:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-/* ===== SECTIONS ANIMATION ===== */
-section {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== GALLERY ===== */
-.gallery {
-  padding: 6rem 5% 4rem;
-  text-align: center;
-}
-
-.gallery h2 {
-  font-family: 'Nabla', cursive;
-  font-size: 2.8rem;
-  color: var(--gold);
-  margin-bottom: 2.5rem;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
-}
-
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(198, 166, 100, 0.25);
-}
-
-/* ===== ABOUT ===== */
-.about {
-  padding: 5rem 5%;
-  text-align: center;
-}
-
-.about h2 {
-  font-family: 'Nabla', cursive;
-  color: var(--gold);
-  font-size: 2.6rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
-}
-
-.about p {
-  max-width: 750px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--white); /* dark mode text white */
-}
-
-/* ===== CONTACT ===== */
-.contact {
-  padding: 5rem 5%;
-  text-align: center;
-}
-
-.contact h2 {
-  font-family: 'Nabla', cursive;
-  color: var(--gold);
-  font-size: 2.6rem;
-  margin-bottom: 2rem;
-}
-
-.contact p,
-.socials p {
-  color: var(--white); /* dark mode text white */
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-form input,
-form textarea {
-  padding: 0.8rem;
-  border: 1px solid #333;
-  border-radius: 10px;
-  background: #1a1a1a;
-  color: var(--white);
-  font-size: 1rem;
-}
-
-form button {
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  padding: 0.8rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: var(--transition);
-}
-
-form button:hover {
-  background: #d7b978;
-}
-
-.socials a {
-  color: var(--gold);
-  margin: 0 0.5rem;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.socials a:hover {
-  color: var(--white);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: #111;
-  text-align: center;
-  padding: 1rem;
-  color: var(--gray);
-  font-size: 0.9rem;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== LUXE MODE ===== */
-body.luxe {
-  background: var(--white);
-  color: #111;
-}
-
-body.luxe header {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-body.luxe .logo { color: #b59b43; }
-body.luxe nav ul li a { color: #111; }
-body.luxe nav ul li a:hover { color: #b59b43; }
-body.luxe .btn { background: #b59b43; color: #fff; }
-body.luxe .btn:hover { background: #9d8735; }
-body.luxe .theme-toggle { border-color: #111; color: #111; }
-body.luxe .theme-toggle:hover { background: #111; color: var(--white); }
-body.luxe .gallery,
-body.luxe .contact { background: #f2f2f2; }
-body.luxe .about { background: #eaeaea; }
-body.luxe .about p,
-body.luxe .contact p,
-body.luxe .socials p { color: #111; }
-body.luxe footer { background: #f2f2f2; color: #444; }
 
 
 
