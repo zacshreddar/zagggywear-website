@@ -46,7 +46,9 @@ html {
 body {
   font-family: 'UnifrakturMaguntia', cursive, serif;
   color: var(--white);
-  background: var(--black);
+  background: url('images/drop1.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
   line-height: 1.6;
   transition: background 0.4s ease, color 0.4s ease;
 }
@@ -64,6 +66,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* LOGO */
@@ -91,7 +94,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: var(--white);
+  color: var(--gold);
   text-decoration: none;
   font-family: 'UnifrakturMaguntia', cursive, serif;
   font-weight: 500;
@@ -99,7 +102,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: var(--gold);
+  color: #e7ca7a;
 }
 
 /* THEME TOGGLE */
@@ -136,24 +139,22 @@ nav ul li a:hover {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  background-image: url('images/drop1.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--white);
-  padding: 5rem 1rem;
+  overflow: hidden;
+  padding-top: 3rem;
 }
 
-/* Maintain hero content visibility on mobile */
-@media (max-width: 768px) {
-  .hero {
-    background-position: center 35%;
-  }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* subtle overlay for contrast */
+  z-index: -1;
 }
 
 .hero-content {
@@ -161,6 +162,7 @@ nav ul li a:hover {
   z-index: 2;
   animation: fadeIn 2s ease;
   max-width: 700px;
+  padding: 0 1rem;
 }
 
 .hero h1 {
@@ -215,10 +217,10 @@ section.visible {
 .gallery h2 {
   font-family: 'Nabla', cursive;
   font-size: 2.8rem;
-  color: var(--white);
+  color: var(--gold);
   margin-bottom: 2.5rem;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
 }
 
 .gallery .grid {
@@ -246,10 +248,10 @@ section.visible {
 
 .about h2 {
   font-family: 'Nabla', cursive;
-  color: var(--white);
+  color: var(--gold);
   font-size: 2.6rem;
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
 }
 
 .about p {
@@ -268,7 +270,7 @@ section.visible {
 
 .contact h2 {
   font-family: 'Nabla', cursive;
-  color: var(--white);
+  color: var(--gold);
   font-size: 2.6rem;
   margin-bottom: 2rem;
 }
@@ -349,14 +351,6 @@ body.luxe .btn { background: #b59b43; color: #fff; }
 body.luxe .btn:hover { background: #9d8735; }
 body.luxe .theme-toggle { border-color: #111; color: #111; }
 body.luxe .theme-toggle:hover { background: #111; color: var(--white); }
-body.luxe .gallery h2,
-body.luxe .about h2,
-body.luxe .about p,
-body.luxe .contact h2,
-body.luxe form input,
-body.luxe form textarea {
-  color: #111;
-}
 body.luxe .gallery, body.luxe .contact { background: #f2f2f2; }
 body.luxe .about { background: #eaeaea; }
 body.luxe footer { background: #f2f2f2; color: #444; }
@@ -364,16 +358,16 @@ body.luxe footer { background: #f2f2f2; color: #444; }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   header { justify-content: center; padding: 1rem 0; }
-  .logo { font-size: 3rem; }
-  nav { display: none; }
-  .menu-toggle { display: flex; }
-  .theme-toggle { display: block; position: absolute; top: 1rem; right: 1rem; }
-  .hero h1 { font-size: 2.4rem; }
-  .hero { background-position: center 30%; }
+  .logo { font-size: 2rem; } /* smaller for mobile */
+  nav, .menu-toggle { display: none !important; }
+  .theme-toggle { display: block; position: absolute; top: 3.5rem; right: 5%; } /* below logo */
+  .hero h1 { font-size: 2rem; } /* smaller hero title */
   .gallery h2, .about h2, .contact h2 { font-size: 2rem; }
   .gallery .grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   section { padding: 2rem 1rem; }
 }
+
+
 
 
 
