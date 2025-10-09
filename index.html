@@ -95,11 +95,11 @@
     changeHero();
     setInterval(changeHero, 5000);
 
-    // ===== GALLERY IMAGES =====
+    // ===== GALLERY IMAGES (drop1-drop8) =====
     const galleryGrid = document.getElementById('galleryGrid');
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 8; i++) {
       const img = document.createElement('img');
-      img.src = `media/a${i}.jpg`;
+      img.src = `images/drop${i}.jpg`;
       img.alt = `Drop ${i}`;
       galleryGrid.appendChild(img);
     }
@@ -153,6 +153,7 @@
   </script>
 </body>
 </html>
+
 
 
 
