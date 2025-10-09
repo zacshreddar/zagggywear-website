@@ -342,8 +342,33 @@ body.luxe footer {
     display: none !important;
   }
 
+  /* === HERO (Mobile Adjustment) === */
+  .hero {
+    align-items: flex-start; /* Push content to top */
+    justify-content: flex-start;
+    padding-top: 5rem; /* Adjust distance from top */
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+
   .hero h1 {
     font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
   }
 
   .gallery h2,
@@ -378,3 +403,5 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
