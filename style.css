@@ -325,119 +325,109 @@ body.luxe footer {
   }
 }
 
-/* ===== RESPONSIVE (MOBILE OPTIMIZATION & BRAND HEADER) ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-
-  /* --- Header --- */
   header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem 0.5rem;
-    background: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    padding: 1rem 0;
   }
 
-  /* --- Brand name (top of screen) --- */
   .logo {
-    order: -1;
-    display: block;
     font-size: 2.3rem;
+    text-align: center;
     color: var(--gold);
-    margin-bottom: 0.5rem;
   }
 
-  /* --- Navigation links --- */
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
+  /* ===== REMOVE DROPDOWN MENU COMPLETELY ===== */
+  nav,
+  .menu-toggle,
+  nav ul,
+  nav ul li,
   nav ul li a {
-    color: var(--white) !important;
-    font-size: 1.1rem;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
-  nav ul li a:hover {
-    color: var(--gold);
-  }
-
-  /* --- Hero Section --- */
+  /* ===== HERO SECTION ===== */
   .hero {
+    text-align: center;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    text-align: center;
-    padding: 3rem 1rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
   }
 
-  .hero-content {
-    text-align: center;
+  /* Brand name at the top */
+  .hero::before {
+    content: "ZAGGGYWEAR";
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 1rem;
+    letter-spacing: 2px;
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-top: 1rem;
     color: var(--white);
   }
 
   .hero p {
     font-size: 1rem;
     color: var(--white);
+    margin-bottom: 2rem;
   }
 
-  /* --- Section Headings (MOBILE: dynamic with Luxe mode) --- */
-  /* default (dark mode) -> white so headings are readable */
+  /* ===== SECTION HEADINGS ===== */
   .gallery h2,
   .about h2,
   .contact h2 {
+    font-size: 2rem;
     color: var(--white);
-    transition: color 0.3s var(--transition);
+    text-align: center;
   }
 
-  /* when Luxe is ON on mobile -> headings become dark (like other text) */
-  body.luxe .gallery h2,
-  body.luxe .about h2,
-  body.luxe .contact h2 {
-    color: #111;
+  /* ===== SECTION SPACING ===== */
+  section {
+    padding: 2rem 1rem;
   }
 
-  /* --- Luxe Mode Adjustments for Mobile (links / header) --- */
-  body.luxe header {
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  body.luxe nav ul li a {
-    color: #111 !important;
-  }
-
-  body.luxe .logo {
-    color: var(--gold);
-  }
-
-  /* --- Gallery grid --- */
+  /* ===== GALLERY GRID ===== */
   .gallery .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
-  /* --- Theme Toggle (bottom center) --- */
+  /* ===== THEME TOGGLE ===== */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid var(--gold);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.75);
     color: var(--gold);
     padding: 0.6rem 1.2rem;
     z-index: 999;
   }
 
   body.luxe .theme-toggle {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
+    color: #111;
+  }
+
+  /* ===== LUXE MODE COLORS ===== */
+  body.luxe .hero::before,
+  body.luxe .hero h1,
+  body.luxe .gallery h2,
+  body.luxe .about h2,
+  body.luxe .contact h2 {
     color: #111;
   }
 }
-
-
-
-
