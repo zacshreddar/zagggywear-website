@@ -325,118 +325,123 @@ body.luxe footer {
   }
 }
 
-/* ===== RESPONSIVE (MOBILE OPTIMIZATION & BRAND HEADER) ===== */
+/* ===== MOBILE FIXES: hide nav + heading colors match desktop ===== */
 @media (max-width: 768px) {
-
-  /* --- Header --- */
+  /* header layout */
   header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem 0.5rem;
+    justify-content: center;
+    padding: 0.75rem 0.75rem;
     background: rgba(0, 0, 0, 0.75);
   }
 
-  /* --- Brand name (top of screen) --- */
+  /* ensure logo is visible and centered (brand on top) */
   .logo {
-    order: -1;
     display: block;
     font-size: 2.3rem;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  /* --- Navigation links --- */
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  nav ul li a {
-    color: var(--white) !important;
-    font-size: 1.1rem;
-  }
-
-  nav ul li a:hover {
-    color: var(--gold);
-  }
-
-  /* --- Hero Section --- */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     text-align: center;
-    padding: 3rem 1rem 4rem;
+    color: var(--gold);
+    margin: 0.25rem 0;
+    letter-spacing: 2px;
+  }
+
+  /* COMPLETELY REMOVE/DISABLE NAV MENU ON MOBILE */
+  .nav-links,
+  nav ul,
+  nav ul li,
+  nav ul li a,
+  .menu-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* HERO — push content toward the top */
+  .hero {
+    align-items: flex-start;         /* move content to top area */
+    justify-content: flex-start;
+    padding-top: 1.25rem;            /* pulls H1 up toward the top */
+    min-height: 100vh;
   }
 
   .hero-content {
-    text-align: center;
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 1rem;
   }
 
   .hero h1 {
-    font-size: 2rem;
-    color: var(--white);
+    font-size: 2.2rem;
+    margin: 0.25rem 0 0.75rem 0;
+    color: var(--gold); /* keeps H1 gold as on desktop */
   }
 
   .hero p {
-    font-size: 1rem;
     color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
-  /* --- Section Headings (MOBILE: dynamic with Luxe mode) --- */
-  /* default (dark mode) -> white so headings are readable */
+  /* SECTION HEADINGS: same behavior as desktop (gold in dark mode, black in luxe) */
   .gallery h2,
   .about h2,
   .contact h2 {
-    color: var(--white);
-    transition: color 0.3s var(--transition);
+    color: var(--gold) !important;
+    text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: 0.75rem;
   }
 
-  /* when Luxe is ON on mobile -> headings become dark (like other text) */
+  /* paragraphs stay white in dark mode (mobile) */
+  .gallery p,
+  .about p,
+  .contact p,
+  section p,
+  .hero p {
+    color: var(--white) !important;
+  }
+
+  /* When luxe mode is active, headings/paragraphs flip to dark like desktop */
   body.luxe .gallery h2,
   body.luxe .about h2,
-  body.luxe .contact h2 {
-    color: #111;
-  }
-
-  /* --- Luxe Mode Adjustments for Mobile (links / header) --- */
-  body.luxe header {
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  body.luxe nav ul li a {
+  body.luxe .contact h2,
+  body.luxe section h2 {
     color: #111 !important;
   }
 
-  body.luxe .logo {
-    color: var(--gold);
+  body.luxe .gallery p,
+  body.luxe .about p,
+  body.luxe .contact p,
+  body.luxe section p,
+  body.luxe .hero p {
+    color: #111 !important;
   }
 
-  /* --- Gallery grid --- */
+  /* Gallery grid for mobile */
   .gallery .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
   }
 
-  /* --- Theme Toggle (bottom center) --- */
+  /* Keep the theme toggle fixed at the bottom center */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid var(--gold);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.75);
     color: var(--gold);
     padding: 0.6rem 1.2rem;
     z-index: 999;
   }
-
   body.luxe .theme-toggle {
     background: rgba(255, 255, 255, 0.95);
     color: #111;
   }
 }
+
+
 
 
 
