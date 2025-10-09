@@ -333,7 +333,7 @@ body.luxe footer {
   }
 
   .logo {
-    display: none; /* Hide top nav logo since hero has one now */
+    display: none; /* Hide nav logo on mobile to declutter hero */
   }
 
   nav,
@@ -347,9 +347,12 @@ body.luxe footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
     padding: 2rem 1rem 3rem;
     min-height: 100vh;
+    background-size: cover;
+    background-position: center;
   }
 
   .hero-content {
@@ -360,27 +363,30 @@ body.luxe footer {
     justify-content: space-between;
   }
 
-  /* Brand Name on Top */
+  /* Brand Name (ZAGGGYWEAR) on Top */
   .hero-content::before {
     content: "ZAGGGYWEAR";
     display: block;
-    font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 2.4rem;
+    font-family: 'Nabla', cursive; /* match desktop headings */
+    font-size: 2.6rem;
     color: var(--gold);
     letter-spacing: 2px;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(198, 166, 100, 0.3);
   }
 
   .hero h1 {
-    font-size: 1.9rem;
+    font-family: 'Nabla', cursive;
+    font-size: 2.1rem;
     color: var(--white);
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .hero p {
     font-size: 1rem;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .btn {
@@ -390,12 +396,13 @@ body.luxe footer {
 
   /* === SECTION HEADINGS & TEXT === */
   section {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
   }
 
   section h2 {
-    font-size: 1.8rem;
-    color: var(--white);
+    font-family: 'Nabla', cursive;
+    font-size: 2rem;
+    color: var(--gold);
     text-align: center;
     margin-bottom: 0.8rem;
   }
@@ -407,8 +414,20 @@ body.luxe footer {
     line-height: 1.5;
   }
 
-  /* Luxe Mode Reversal */
-  body.luxe section h2,
+  /* === LUXE MODE (white background with black text) === */
+  body.luxe {
+    background: var(--white);
+    color: #111;
+  }
+
+  body.luxe .hero-content::before {
+    color: #b59b43; /* muted gold for luxe mode */
+  }
+
+  body.luxe section h2 {
+    color: #b59b43;
+  }
+
   body.luxe section p {
     color: #111;
   }
@@ -416,7 +435,7 @@ body.luxe footer {
   /* === GALLERY === */
   .gallery .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   /* === THEME TOGGLE (fixed at bottom) === */
@@ -437,5 +456,7 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
 
 
