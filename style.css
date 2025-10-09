@@ -325,76 +325,64 @@ body.luxe footer {
   }
 }
 
- /* ===== MOBILE HERO ADJUSTMENTS ===== */
+ /* ===== MOBILE FIXES: hide nav + heading colors match desktop ===== */
 @media (max-width: 768px) {
-  /* Header layout */
+  /* header layout */
   header {
     justify-content: center;
     padding: 0.75rem 0.75rem;
     background: rgba(0, 0, 0, 0.75);
   }
 
-  /* Brand name (top center, with small gap) */
+  /* ensure logo is visible and centered (brand on top) */
   .logo {
     display: block;
     font-size: 2.3rem;
     text-align: center;
     color: var(--gold);
-    margin-top: 1.2rem; /* space below top */
-    margin-bottom: 0.8rem;
+    margin: 0.25rem 0;
     letter-spacing: 2px;
   }
 
-  /* Hide nav/menu completely */
-  nav,
+  /* COMPLETELY REMOVE/DISABLE NAV MENU ON MOBILE */
+  .nav-links,
+  nav ul,
+  nav ul li,
+  nav ul li a,
   .menu-toggle {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
-  /* HERO */
+  /* HERO — push content toward the top */
   .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* brand on top, text on bottom */
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;         /* move content to top area */
+    justify-content: flex-start;
+    padding-top: 1.25rem;            /* pulls H1 up toward the top */
     min-height: 100vh;
-    padding: 1rem 1rem 1.5rem;
   }
 
   .hero-content {
     width: 100%;
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin-top: 0.25rem;
+    padding: 1rem;
   }
 
-  /* Brand name (ZAGGGYWEAR) shown, remove subtitle */
   .hero h1 {
-    font-size: 2.3rem;
-    color: var(--gold);
-    margin-top: 0.5rem;
+    font-size: 2.2rem;
+    margin: 0.25rem 0 0.75rem 0;
+    color: var(--gold); /* keeps H1 gold as on desktop */
   }
 
-  /* Hide the “Street Meets Luxury” subtitle */
-  .hero h2 {
-    display: none !important;
-  }
-
-  /* Move paragraph text to bottom of screen */
   .hero p {
-    position: absolute;
-    bottom: 1.2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    font-size: 1rem;
     color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
-  /* Section headings color (dark mode gold, luxe black) */
+  /* SECTION HEADINGS: same behavior as desktop (gold in dark mode, black in luxe) */
   .gallery h2,
   .about h2,
   .contact h2 {
@@ -404,13 +392,38 @@ body.luxe footer {
     margin-bottom: 0.75rem;
   }
 
+  /* paragraphs stay white in dark mode (mobile) */
+  .gallery p,
+  .about p,
+  .contact p,
+  section p,
+  .hero p {
+    color: var(--white) !important;
+  }
+
+  /* When luxe mode is active, headings/paragraphs flip to dark like desktop */
   body.luxe .gallery h2,
   body.luxe .about h2,
-  body.luxe .contact h2 {
+  body.luxe .contact h2,
+  body.luxe section h2 {
     color: #111 !important;
   }
 
-  /* Theme toggle fixed at bottom center */
+  body.luxe .gallery p,
+  body.luxe .about p,
+  body.luxe .contact p,
+  body.luxe section p,
+  body.luxe .hero p {
+    color: #111 !important;
+  }
+
+  /* Gallery grid for mobile */
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  /* Keep the theme toggle fixed at the bottom center */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
@@ -422,10 +435,8 @@ body.luxe footer {
     padding: 0.6rem 1.2rem;
     z-index: 999;
   }
-
   body.luxe .theme-toggle {
     background: rgba(255, 255, 255, 0.95);
     color: #111;
   }
 }
-
