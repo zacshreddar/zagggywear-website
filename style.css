@@ -348,25 +348,35 @@ body.luxe footer {
   .hero {
     align-items: flex-start;
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: 3rem;
+    text-align: center;
   }
 
+  .hero-content {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Hide the main desktop heading */
   .hero-content h1 {
-    display: none; /* hide STREET MEETS LUXURY */
+    display: none;
   }
 
+  /* Display brand name on top */
   .hero-content::before {
     content: "ZAGGGYWEAR";
     display: block;
     color: var(--gold);
     font-family: "UnifrakturMaguntia", cursive;
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    margin-top: 100px;
+    font-size: 2.6rem;
+    letter-spacing: 3px;
     text-align: center;
+    margin-top: 80px;
+    text-shadow: 0 0 12px rgba(198, 166, 100, 0.4);
     animation: fadeIn 2s ease;
   }
 
+  /* Place paragraph at bottom */
   .hero-content p {
     position: absolute;
     bottom: 60px;
@@ -374,7 +384,7 @@ body.luxe footer {
     transform: translateX(-50%);
     width: 90%;
     color: var(--white);
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
   }
 
@@ -383,34 +393,25 @@ body.luxe footer {
   .about h2,
   .contact h2 {
     color: var(--gold) !important;
+    text-shadow: 0 0 8px rgba(198, 166, 100, 0.4);
   }
 
-  /* Restore luxe toggle button */
+  /* Restore Luxe Toggle Button */
   .theme-toggle {
     position: fixed;
     top: 15px;
     right: 20px;
     border: 1px solid var(--gold);
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
     color: var(--gold);
     padding: 0.6rem 1.2rem;
     border-radius: 25px;
+    font-weight: 600;
     z-index: 2000;
   }
 
   body.luxe .theme-toggle {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #111;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
