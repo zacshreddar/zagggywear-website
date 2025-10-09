@@ -129,10 +129,15 @@ nav ul li a:hover {
   z-index: 2;
   max-width: 700px;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   animation: fadeIn 2s ease;
 }
 
-.hero h1 {
+.hero-title {
+  margin-top: 2rem; /* near top */
   font-family: 'Nabla', cursive;
   font-size: 3rem;
   letter-spacing: 4px;
@@ -140,8 +145,12 @@ nav ul li a:hover {
   text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
 }
 
-.hero p {
-  margin: 1.2rem 0 2rem;
+.hero-bottom-content {
+  margin-bottom: 3rem; /* near bottom */
+}
+
+.hero-bottom-content p {
+  margin-bottom: 1.5rem;
   font-size: 1.1rem;
   color: var(--white);
 }
@@ -346,6 +355,19 @@ body.luxe footer {
     font-size: 2.2rem;
   }
 
+  .hero-content {
+    justify-content: space-between;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-bottom-content {
+    margin-bottom: 2rem;
+  }
+
   .gallery h2,
   .about h2,
   .contact h2 {
@@ -378,6 +400,9 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
+
 
 
 
