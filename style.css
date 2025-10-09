@@ -325,67 +325,110 @@ body.luxe footer {
   }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE (MOBILE OPTIMIZATION) ===== */
 @media (max-width: 768px) {
   header {
-    justify-content: center;
-    padding: 1rem 0;
+    display: none; /* Hide desktop nav completely on mobile */
   }
 
-  .logo {
-    font-size: 2.3rem;
-    text-align: center;
-  }
-
-  nav,
-  .menu-toggle {
-    display: none !important;
-  }
-
-  /* === HERO (Mobile Adjustment) === */
+  /* === HERO === */
   .hero {
-    align-items: flex-start; /* Push content to top */
-    justify-content: flex-start;
-    padding-top: 5rem; /* Adjust distance from top */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 1.5rem 1rem;
     min-height: 100vh;
-    text-align: bottom;
   }
 
-  .hero-content {
-    margin-top: 1rem;
-    padding: 0 1rem;
+  /* Top brand logo inside hero */
+  .hero::before {
+    content: "ZAGGGYWEAR";
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 2.2rem;
+    color: var(--white);
+    letter-spacing: 2px;
   }
 
   .hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-top: 5rem;
+    color: var(--white);
   }
 
   .hero p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--white);
+    max-width: 90%;
+    margin: 0 auto 1.5rem;
   }
 
-  .btn {
-    padding: 0.8rem 1.6rem;
-    font-size: 1rem;
+  .hero .btn {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.95rem;
   }
 
-  .gallery h2,
-  .about h2,
-  .contact h2 {
-    font-size: 2rem;
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    padding-bottom: 2rem;
   }
 
-  .gallery .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
+  /* === SECTION HEADINGS AND TEXT === */
   section {
     padding: 2rem 1rem;
   }
 
+  section h2 {
+    font-size: 1.8rem;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+
+  section p {
+    font-size: 0.95rem;
+    color: var(--white);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* Luxe Mode reverses text color */
+  body.luxe section h2,
+  body.luxe section p {
+    color: #111;
+  }
+
+  /* === GALLERY === */
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  /* === CONTACT FORM === */
+  .contact form {
+    width: 100%;
+  }
+
+  .contact input,
+  .contact textarea {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .contact button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* === THEME TOGGLE === */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
@@ -396,6 +439,7 @@ body.luxe footer {
     color: var(--gold);
     padding: 0.6rem 1.2rem;
     z-index: 999;
+    border-radius: 30px;
   }
 
   body.luxe .theme-toggle {
@@ -403,6 +447,3 @@ body.luxe footer {
     color: #111;
   }
 }
-
-
-
