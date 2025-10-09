@@ -101,7 +101,7 @@ nav ul li a:hover {
 
 /* ===== HERO ===== */
 .hero {
-  position: relative;
+  position: relative; /* keep overlay contained */
   height: 100vh;
   display: flex;
   align-items: center;
@@ -118,10 +118,30 @@ nav ul li a:hover {
 
 .hero .overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* cover hero only */
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1; /* under hero content */
+  pointer-events: none; /* don’t block clicks */
   transition: background 0.5s ease;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.1;
+  animation: heroZoom 20s infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
 }
 
 .hero-content {
@@ -189,6 +209,10 @@ section.visible {
   margin-bottom: 2.5rem;
 }
 
+.gallery p {
+  color: var(--white);
+}
+
 .gallery .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -200,7 +224,6 @@ section.visible {
   border-radius: 12px;
   transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
   filter: brightness(0.95);
-  display: block;
 }
 
 .gallery img:hover {
@@ -256,15 +279,13 @@ form textarea {
   border-radius: 10px;
   background: #1a1a1a;
   color: var(--white);
-  width: 100%;
-  margin-bottom: 1rem;
 }
 
 form button {
   background: var(--gold);
   color: var(--black);
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
@@ -361,11 +382,6 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 
-  /* ===== NEW: Remove hero overlay on mobile ===== */
-  .hero .overlay {
-    display: none;
-  }
-
   .theme-toggle {
     position: fixed;
     bottom: 20px;
@@ -383,5 +399,7 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
 
 
