@@ -333,7 +333,7 @@ body.luxe footer {
   }
 
   .logo {
-    display: none; /* Hide top nav logo since hero has one now */
+    display: none; /* Hide nav logo since hero has one now */
   }
 
   nav,
@@ -364,11 +364,12 @@ body.luxe footer {
   .hero-content::before {
     content: "ZAGGGYWEAR";
     display: block;
-    font-family: 'Nabia', cursive;
+    font-family: 'Nabla', cursive;
     font-size: 2.4rem;
     color: var(--gold);
     letter-spacing: 2px;
     margin-top: 1.5rem;
+    text-transform: uppercase;
   }
 
   .hero h1 {
@@ -395,7 +396,7 @@ body.luxe footer {
 
   section h2 {
     font-size: 1.8rem;
-    color: var(--gold) !important; /* force gold headings */
+    color: var(--white);
     text-align: center;
     margin-bottom: 0.8rem;
   }
@@ -407,13 +408,11 @@ body.luxe footer {
     line-height: 1.5;
   }
 
-  /* Keep headings gold even in luxe mode */
-  body.luxe section h2 {
-    color: var(--gold) !important;
-  }
-
-  body.luxe section p {
-    color: #111;
+  /* Keep colors consistent on mobile */
+  .gallery h2,
+  .about h2,
+  .contact h2 {
+    color: var(--gold);
   }
 
   /* === GALLERY === */
@@ -440,10 +439,3 @@ body.luxe footer {
     color: #111;
   }
 }
-
-
-
-
-
-
-
