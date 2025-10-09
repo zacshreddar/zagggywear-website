@@ -325,90 +325,105 @@ body.luxe footer {
   }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== MOBILE FIXES: hide nav + heading colors match desktop ===== */
 @media (max-width: 768px) {
-  /* ===== HEADER ===== */
+  /* header layout */
   header {
     justify-content: center;
-    padding: 1rem 0;
+    padding: 0.75rem 0.75rem;
+    background: rgba(0, 0, 0, 0.75);
   }
 
+  /* ensure logo is visible and centered (brand on top) */
   .logo {
-    font-size: 2.4rem;
+    display: block;
+    font-size: 2.3rem;
     text-align: center;
     color: var(--gold);
+    margin: 0.25rem 0;
+    letter-spacing: 2px;
   }
 
-  /* ===== FULLY REMOVE NAV MENU ===== */
-  nav,
-  nav *,
-  .menu-toggle,
-  .nav-links {
+  /* COMPLETELY REMOVE/DISABLE NAV MENU ON MOBILE */
+  .nav-links,
+  nav ul,
+  nav ul li,
+  nav ul li a,
+  .menu-toggle {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
-    height: 0 !important;
-    width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
   }
 
-  /* ===== HERO SECTION ===== */
+  /* HERO — push content toward the top */
   .hero {
-    text-align: center;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;         /* move content to top area */
+    justify-content: flex-start;
+    padding-top: 1.25rem;            /* pulls H1 up toward the top */
     min-height: 100vh;
   }
 
-  /* Brand name at the top */
-  .hero::before {
-    content: "ZAGGGYWEAR";
-    display: block;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-top: 0.5rem;
-    letter-spacing: 2px;
+  .hero-content {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 1rem;
   }
 
   .hero h1 {
     font-size: 2.2rem;
-    margin-top: 1rem;
-    color: var(--white);
+    margin: 0.25rem 0 0.75rem 0;
+    color: var(--gold); /* keeps H1 gold as on desktop */
   }
 
   .hero p {
-    font-size: 1rem;
     color: var(--white);
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
-  /* ===== SECTION HEADINGS ===== */
+  /* SECTION HEADINGS: same behavior as desktop (gold in dark mode, black in luxe) */
   .gallery h2,
   .about h2,
   .contact h2 {
-    font-size: 2rem;
-    color: var(--white);
+    color: var(--gold) !important;
     text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: 0.75rem;
   }
 
-  /* ===== SECTION SPACING ===== */
-  section {
-    padding: 2rem 1rem;
+  /* paragraphs stay white in dark mode (mobile) */
+  .gallery p,
+  .about p,
+  .contact p,
+  section p,
+  .hero p {
+    color: var(--white) !important;
   }
 
-  /* ===== GALLERY GRID ===== */
+  /* When luxe mode is active, headings/paragraphs flip to dark like desktop */
+  body.luxe .gallery h2,
+  body.luxe .about h2,
+  body.luxe .contact h2,
+  body.luxe section h2 {
+    color: #111 !important;
+  }
+
+  body.luxe .gallery p,
+  body.luxe .about p,
+  body.luxe .contact p,
+  body.luxe section p,
+  body.luxe .hero p {
+    color: #111 !important;
+  }
+
+  /* Gallery grid for mobile */
   .gallery .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
-  /* ===== THEME TOGGLE ===== */
+  /* Keep the theme toggle fixed at the bottom center */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
@@ -420,19 +435,8 @@ body.luxe footer {
     padding: 0.6rem 1.2rem;
     z-index: 999;
   }
-
   body.luxe .theme-toggle {
-    background: rgba(255, 255, 255, 0.9);
-    color: #111;
-  }
-
-  /* ===== LUXE MODE COLORS ===== */
-  body.luxe .hero::before,
-  body.luxe .hero h1,
-  body.luxe .gallery h2,
-  body.luxe .about h2,
-  body.luxe .contact h2 {
+    background: rgba(255, 255, 255, 0.95);
     color: #111;
   }
 }
-
