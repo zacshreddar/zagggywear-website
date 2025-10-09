@@ -349,16 +349,34 @@ body.luxe footer {
     top: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'UnifrakturMaguntia', cursive;
+    font-family: 'Anton', sans-serif; /* Match heading font */
     font-size: 2.2rem;
-    color: var(--white);
     letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInBrand 2s ease forwards;
+    z-index: 5;
   }
 
+  /* Fade-in animation */
+  @keyframes fadeInBrand {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  /* Hero text styling */
   .hero h1 {
     font-size: 2rem;
-    margin-top: 5rem;
+    margin-top: 6rem;
     color: var(--white);
+    font-family: 'Anton', sans-serif;
   }
 
   .hero p {
@@ -379,6 +397,7 @@ body.luxe footer {
     justify-content: flex-end;
     flex-grow: 1;
     padding-bottom: 2rem;
+    z-index: 5;
   }
 
   /* === SECTION HEADINGS AND TEXT === */
@@ -388,22 +407,24 @@ body.luxe footer {
 
   section h2 {
     font-size: 1.8rem;
-    color: var(--white);
+    color: var(--white) !important;
     text-align: center;
     margin-bottom: 0.8rem;
+    font-family: 'Anton', sans-serif; /* Same as desktop headings */
   }
 
   section p {
     font-size: 0.95rem;
-    color: var(--white);
+    color: var(--white) !important;
     line-height: 1.5;
     text-align: center;
   }
 
-  /* Luxe Mode reverses text color */
+  /* === LUXE MODE (light mode) === */
+  body.luxe .hero::before,
   body.luxe section h2,
   body.luxe section p {
-    color: #111;
+    color: #111 !important;
   }
 
   /* === GALLERY === */
@@ -447,3 +468,5 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
