@@ -31,15 +31,17 @@ function changeHero() {
   currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
 }
 
-changeHero();
-setInterval(changeHero, 5000);
+changeHero();           // initial background
+setInterval(changeHero, 5000); // slideshow every 5s
 
 // ===== GALLERY IMAGES (images/drop1-drop8) =====
 const galleryGrid = document.getElementById('galleryGrid');
 for (let i = 1; i <= 8; i++) {
   const img = document.createElement('img');
-  img.src = `images/drop${i}.jpg`;
+  img.src = `images/drop${i}.jpg`;  // correct folder path
   img.alt = `Drop ${i}`;
   galleryGrid.appendChild(img);
 }
+
+
 
