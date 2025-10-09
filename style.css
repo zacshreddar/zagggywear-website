@@ -340,7 +340,7 @@ body.luxe footer {
     font-size: 2.3rem;
     text-align: center;
     color: var(--gold);
-    margin: 0.5rem 0;
+    margin: 0.4rem 0;
     letter-spacing: 2px;
   }
 
@@ -378,7 +378,7 @@ body.luxe footer {
 
   .hero p {
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
   }
 
@@ -440,4 +440,5 @@ body.luxe footer {
     color: #111;
   }
 }
+
 
