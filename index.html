@@ -10,14 +10,6 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Quick fix for mobile header overlap -->
-  <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px; /* Adjust to match your header height */
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -42,9 +34,11 @@
   <section id="home" class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>STREET MEETS LUXURY</h1>
-      <p>ZAGGGYWEAR merges raw Kenyan street energy with sleek design — defining a new era of urban fashion built for confidence and attitude.</p>
-      <a href="#gallery" class="btn">Shop The Vibe</a>
+      <h1 class="hero-title">ZAGGGYWEAR</h1>
+      <div class="hero-bottom-content">
+        <p>ZAGGGYWEAR merges raw Kenyan street energy with sleek design — defining a new era of urban fashion built for confidence and attitude.</p>
+        <a href="#gallery" class="btn">Shop With Us</a>
+      </div>
     </div>
   </section>
 
@@ -103,11 +97,11 @@
     changeHero();
     setInterval(changeHero, 5000);
 
-    // ===== GALLERY IMAGES (drop1-drop8) =====
+    // ===== GALLERY IMAGES =====
     const galleryGrid = document.getElementById('galleryGrid');
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= 15; i++) {
       const img = document.createElement('img');
-      img.src = `images/drop${i}.jpg`;
+      img.src = `media/a${i}.jpg`;
       img.alt = `Drop ${i}`;
       galleryGrid.appendChild(img);
     }
@@ -161,6 +155,7 @@
   </script>
 </body>
 </html>
+
 
 
 
