@@ -3,132 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZAGGGYWEAR | Urban Luxe Streetwear</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Nabla&display=swap" rel="stylesheet">
-
-  <!-- Main Stylesheet -->
+  <title>ZAGGGYWEAR – Urban Luxe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
+    <div class="logo">ZAGGGYWEAR</div>
     <nav>
-      <div class="logo">ZAGGGYWEAR</div>
-
-      <div class="menu-toggle" id="mobile-menu">
-        <div></div><div></div><div></div>
-      </div>
-
-      <ul class="nav-links">
+      <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#gallery">Shop</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><button id="themeToggle" class="theme-toggle">Luxe Mode</button></li>
       </ul>
     </nav>
+    <button class="theme-toggle" id="theme-toggle">Luxe Mode</button>
   </header>
 
-  <!-- HERO -->
-  <section id="home" class="hero" style="background-image: url('images/drop1.jpg');">
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>STREET MEETS LUXURY</h1>
-      <p>ZAGGGYWEAR merges raw Kenyan street energy with sleek design — defining a new era of urban fashion built for confidence and attitude.</p>
-      <a href="#gallery" class="btn">Shop The Vibe</a>
+      <h1>Street Meets Luxe</h1>
+      <p>Tunavaa Kulture — si fashion tu.</p>
+      <a href="#gallery" class="btn">Explore Collection</a>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="gallery">
-    <h2>Latest Drops</h2>
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <h2>Urban Luxe Collection</h2>
+    <p>Raw Kulture. Real Streets. Sleek Design.</p>
     <div class="grid">
-      <img src="images/drop1.jpg" alt="Drop 1">
-      <img src="images/drop2.jpg" alt="Drop 2">
-      <img src="images/drop3.jpg" alt="Drop 3">
-      <img src="images/drop4.jpg" alt="Drop 4">
-      <img src="images/drop5.jpg" alt="Drop 5">
-      <img src="images/drop6.jpg" alt="Drop 6">
-      <img src="images/drop7.jpg" alt="Drop 7">
-      <img src="images/drop8.jpg" alt="Drop 8">
+      <img src="media/a1.jpg" alt="Zagggywear look 1">
+      <img src="media/a2.jpg" alt="Zagggywear look 2">
+      <img src="media/a3.jpg" alt="Zagggywear look 3">
+      <img src="media/a4.jpg" alt="Zagggywear look 4">
+      <img src="media/a5.jpg" alt="Zagggywear look 5">
+      <img src="media/a6.jpg" alt="Zagggywear look 6">
+      <img src="media/a7.jpg" alt="Zagggywear look 7">
+      <img src="media/a8.jpg" alt="Zagggywear look 8">
+      <img src="media/a9.jpg" alt="Zagggywear look 9">
+      <img src="media/a10.jpg" alt="Zagggywear look 10">
+      <img src="media/a11.jpg" alt="Zagggywear look 11">
+      <img src="media/a12.jpg" alt="Zagggywear look 12">
+      <img src="media/a13.jpg" alt="Zagggywear look 13">
+      <img src="media/a14.jpg" alt="Zagggywear look 14">
+      <img src="media/a15.jpg" alt="Zagggywear look 15">
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
     <h2>About ZAGGGYWEAR</h2>
-    <p><strong>ZAGGGYWEAR</strong> is a Kenyan-born luxury streetwear label merging raw street culture with refined minimalism.
-      Each piece tells a story of ambition, rebellion, and creative identity — designed for those who don’t follow trends but set them.
-      From sleek silhouettes to timeless tones, our collections embody urban sophistication with an edge.</p>
+    <p>
+      ZAGGGYWEAR merges raw Kenyan street energy with sleek design —
+      defining a new era of urban fashion built for confidence, attitude,
+      and Kulture.
+    </p>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Connect With Us</h2>
-    <form id="contactForm" action="https://formspree.io/f/mgvnlkvq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Let’s connect and keep the Kulture alive.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
     </form>
-
-    <div class="socials">
-      <p>Follow ZAGGGYWEAR for exclusive drops & behind-the-scenes looks:</p>
-      <a href="https://instagram.com/zagggywear" target="_blank">Instagram</a> |
-      <a href="https://tiktok.com/@zagggywear" target="_blank">TikTok</a> |
-      <a href="https://twitter.com/zagggywear" target="_blank">Twitter</a> |
-      <a href="https://youtube.com/@zagggybabyyy" target="_blank">YouTube</a>
-    </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined. Crafted with passion in Kenya.</p>
+    <p>© 2025 ZAGGGYWEAR. All Rights Reserved.</p>
   </footer>
 
-  <!-- JS -->
+  <!-- ===== SCRIPT ===== -->
   <script>
-    // Section animations
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('luxe');
+      toggleBtn.textContent =
+        document.body.classList.contains('luxe') ? 'Street Mode' : 'Luxe Mode';
+    });
+
+    // Reveal sections on scroll
     const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+    window.addEventListener('scroll', () => {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach((section) => {
+        const boxTop = section.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          section.classList.add('visible');
         }
       });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-
-    // Theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('luxe');
-      themeToggle.textContent = body.classList.contains('luxe') ? 'Dark Mode' : 'Luxe Mode';
-      localStorage.setItem('theme', body.classList.contains('luxe') ? 'luxe' : 'dark');
-    });
-    if (localStorage.getItem('theme') === 'luxe') {
-      body.classList.add('luxe');
-      themeToggle.textContent = 'Dark Mode';
-    }
-
-    // Mobile nav toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-    // Form validation
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(event) {
-      if (!contactForm.checkValidity()) {
-        event.preventDefault();
-        alert('Please fill out all fields before submitting.');
-      }
     });
   </script>
 </body>
 </html>
+
+
 
 
 
