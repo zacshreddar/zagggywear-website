@@ -361,11 +361,9 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 
-  /* ===== NEW: Extra top padding to prevent headings from being hidden ===== */
-  .gallery,
-  .about,
-  .contact {
-    padding-top: 6rem; /* adjust this if your header is taller/shorter */
+  /* ===== NEW: Remove hero overlay on mobile ===== */
+  .hero .overlay {
+    display: none;
   }
 
   .theme-toggle {
@@ -385,3 +383,4 @@ body.luxe footer {
     color: #111;
   }
 }
+
