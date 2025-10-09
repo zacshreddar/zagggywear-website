@@ -43,15 +43,8 @@
   <!-- GALLERY -->
   <section id="gallery" class="gallery">
     <h2>Latest Drops</h2>
-    <div class="grid">
-      <img src="images/drop1.jpg" alt="Drop 1">
-      <img src="images/drop2.jpg" alt="Drop 2">
-      <img src="images/drop3.jpg" alt="Drop 3">
-      <img src="images/drop4.jpg" alt="Drop 4">
-      <img src="images/drop5.jpg" alt="Drop 5">
-      <img src="images/drop6.jpg" alt="Drop 6">
-      <img src="images/drop7.jpg" alt="Drop 7">
-      <img src="images/drop8.jpg" alt="Drop 8">
+    <div class="grid" id="galleryGrid">
+      <!-- Images will be injected via JS -->
     </div>
   </section>
 
@@ -88,23 +81,38 @@
 
   <!-- JS -->
   <script>
-    // Hero background slideshow
+    // ===== HERO SLIDESHOW =====
     const hero = document.querySelector('.hero');
-    const images = [
-      'images/drop1.jpg',
-      'images/drop2.jpg',
-      'images/drop3.jpg',
-      'images/drop4.jpg'
-    ];
-    let i = 0;
+    const heroImages = [];
+    for (let i = 1; i <= 15; i++) {
+      heroImages.push(`media/a${i}.jpg`);
+    }
+    let heroIndex = 0;
     function changeHero() {
-      hero.style.backgroundImage = `url('${images[i]}')`;
-      i = (i + 1) % images.length;
+      hero.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
+      heroIndex = (heroIndex + 1) % heroImages.length;
     }
     changeHero();
     setInterval(changeHero, 5000);
 
-    // Section animations
+    // ===== GALLERY IMAGES =====
+    const galleryGrid = document.getElementById('galleryGrid');
+    for (let i = 1; i <= 15; i++) {
+      const img = document.createElement('img');
+      img.src = `media/a${i}.jpg`;
+      img.alt = `Drop ${i}`;
+      galleryGrid.appendChild(img);
+    }
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+      });
+    });
+
+    // ===== FADE-IN EFFECT =====
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -116,7 +124,7 @@
     }, { threshold: 0.2 });
     sections.forEach(section => observer.observe(section));
 
-    // Theme toggle
+    // ===== THEME TOGGLE =====
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     themeToggle.addEventListener('click', () => {
@@ -129,12 +137,12 @@
       themeToggle.textContent = 'Dark Mode';
     }
 
-    // Mobile nav toggle
+    // ===== MOBILE NAV TOGGLE =====
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-    // Form validation
+    // ===== FORM VALIDATION =====
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function(event) {
       if (!contactForm.checkValidity()) {
@@ -145,6 +153,7 @@
   </script>
 </body>
 </html>
+
 
 
 
