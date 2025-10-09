@@ -43,6 +43,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background 0.4s ease;
 }
 
 /* ===== LOGO ===== */
@@ -110,7 +111,7 @@ nav ul li a:hover {
   color: var(--white);
   padding-top: 3rem;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   transition: background-image 1s ease-in-out;
 }
@@ -119,6 +120,24 @@ nav ul li a:hover {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
+  transition: background 0.5s ease;
+}
+
+/* Optional subtle zoom effect on hero images */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  opacity: 0.1;
+  animation: heroZoom 20s infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
 }
 
 .hero-content {
@@ -199,12 +218,14 @@ section.visible {
 .gallery img {
   width: 100%;
   border-radius: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.95);
 }
 
 .gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(198, 166, 100, 0.25);
+  box-shadow: 0 6px 25px rgba(198, 166, 100, 0.4);
+  filter: brightness(1);
 }
 
 /* ===== ABOUT ===== */
@@ -245,14 +266,6 @@ section.visible {
 
 .contact p {
   color: var(--white);
-}
-
-form {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 form input,
@@ -382,6 +395,8 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
 
 
 
