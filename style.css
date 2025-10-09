@@ -1,5 +1,5 @@
 /* ============================================
-   ZAGGGYWEAR - URBAN LUXE STYLESHEET (UPDATED)
+   ZAGGGYWEAR - URBAN LUXE STYLESHEET (FINAL MERGED)
    ============================================ */
 
 /* ===== BASE COLORS & FONTS ===== */
@@ -325,117 +325,102 @@ body.luxe footer {
   }
 }
 
-/* ===== RESPONSIVE (MOBILE OPTIMIZATION) ===== */
+/* ===== RESPONSIVE (MOBILE OPTIMIZATION & BRAND HEADER) ===== */
 @media (max-width: 768px) {
+
+  /* --- Header --- */
   header {
-    justify-content: center;
-    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    background: rgba(0, 0, 0, 0.75);
   }
 
+  /* --- Brand name (top of screen) --- */
   .logo {
-    display: none; /* Hide nav logo since hero has one now */
+    order: -1;
+    display: block;
+    font-size: 2.3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
   }
 
-  nav,
-  .menu-toggle {
-    display: none !important;
+  /* --- Navigation links --- */
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  /* === HERO SECTION === */
+  nav ul li a {
+    color: var(--white) !important;
+    font-size: 1.1rem;
+  }
+
+  nav ul li a:hover {
+    color: var(--gold);
+  }
+
+  /* --- Hero Section --- */
   .hero {
-    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     text-align: center;
-    padding: 2rem 1rem 3rem;
-    min-height: 100vh;
+    padding: 3rem 1rem 4rem;
   }
 
   .hero-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  /* Brand Name on Top */
-  .hero-content::before {
-    content: "ZAGGGYWEAR";
-    display: block;
-    font-family: 'Nabla', cursive;
-    font-size: 2.4rem;
-    color: var(--gold);
-    letter-spacing: 2px;
-    margin-top: 1.5rem;
-    text-transform: uppercase;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: 1.9rem;
+    font-size: 2rem;
     color: var(--white);
-    margin-top: 2rem;
   }
 
   .hero p {
     font-size: 1rem;
     color: var(--white);
-    margin-bottom: 1rem;
   }
 
-  .btn {
-    padding: 0.8rem 1.6rem;
-    font-size: 1rem;
-  }
-
-  /* === SECTION HEADINGS & TEXT === */
-  section {
-    padding: 1.5rem 1rem;
-  }
-
-  section h2 {
-    font-size: 1.8rem;
-    color: var(--white);
-    text-align: center;
-    margin-bottom: 0.8rem;
-  }
-
-  section p {
-    color: var(--white);
-    text-align: center;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  /* Keep colors consistent on mobile */
+  /* --- Section Headings --- */
   .gallery h2,
   .about h2,
   .contact h2 {
+    color: var(--white) !important;
+  }
+
+  /* --- Luxe Mode Adjustments for Mobile --- */
+  body.luxe header {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  body.luxe nav ul li a {
+    color: #111 !important;
+  }
+
+  body.luxe .logo {
     color: var(--gold);
   }
 
-  /* === GALLERY === */
-  .gallery .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-  }
-
-  /* === THEME TOGGLE (fixed at bottom) === */
+  /* --- Theme Toggle (bottom center) --- */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid var(--gold);
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
     color: var(--gold);
     padding: 0.6rem 1.2rem;
     z-index: 999;
   }
 
   body.luxe .theme-toggle {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     color: #111;
   }
 }
+
+
