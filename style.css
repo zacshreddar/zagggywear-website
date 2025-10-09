@@ -348,7 +348,7 @@ body.luxe footer {
     justify-content: flex-start;
     padding-top: 5rem; /* Adjust distance from top */
     min-height: 100vh;
-    text-align: center;
+    text-align: bottom;
   }
 
   .hero-content {
@@ -403,5 +403,6 @@ body.luxe footer {
     color: #111;
   }
 }
+
 
 
