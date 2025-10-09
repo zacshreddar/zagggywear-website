@@ -119,7 +119,7 @@ nav ul li a:hover {
 .hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.15);
   z-index: 1;
   transition: background 0.5s ease;
 }
@@ -383,4 +383,5 @@ body.luxe footer {
     color: #111;
   }
 }
+
 
