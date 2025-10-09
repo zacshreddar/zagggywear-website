@@ -98,7 +98,7 @@ nav ul li a:hover {
   color: var(--black);
 }
 
-/* ===== HERO ===== */
+/* ===== HERO SECTION WITH SLIDESHOW ===== */
 .hero {
   position: relative;
   height: 100vh;
@@ -109,14 +109,24 @@ nav ul li a:hover {
   overflow: hidden;
   color: var(--white);
   padding-top: 3rem;
+}
+
+/* Background slideshow using pseudo-elements */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
+  animation: heroSlide 75s infinite ease-in-out; /* 15 images * 5s each */
+  z-index: 0;
 }
 
 .hero .overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
 .hero-content {
@@ -138,7 +148,27 @@ nav ul li a:hover {
 .hero p {
   margin: 1.2rem 0 2rem;
   font-size: 1.1rem;
-  color: var(--white); /* changed from gray */
+  color: var(--white);
+}
+
+/* ===== SLIDESHOW KEYFRAMES ===== */
+@keyframes heroSlide {
+  0% { background-image: url('media/a1.jpg'); }
+  6.66% { background-image: url('media/a2.jpg'); }
+  13.33% { background-image: url('media/a3.jpg'); }
+  20% { background-image: url('media/a4.jpg'); }
+  26.66% { background-image: url('media/a5.jpg'); }
+  33.33% { background-image: url('media/a6.jpg'); }
+  40% { background-image: url('media/a7.jpg'); }
+  46.66% { background-image: url('media/a8.jpg'); }
+  53.33% { background-image: url('media/a9.jpg'); }
+  60% { background-image: url('media/a10.jpg'); }
+  66.66% { background-image: url('media/a11.jpg'); }
+  73.33% { background-image: url('media/a12.jpg'); }
+  80% { background-image: url('media/a13.jpg'); }
+  86.66% { background-image: url('media/a14.jpg'); }
+  93.33% { background-image: url('media/a15.jpg'); }
+  100% { background-image: url('media/a1.jpg'); }
 }
 
 /* ===== BUTTONS ===== */
@@ -293,7 +323,7 @@ body.luxe {
 }
 
 body.luxe p {
-  color: #000; /* black for all paragraphs in luxe mode */
+  color: #000;
 }
 
 body.luxe header {
@@ -317,14 +347,8 @@ body.luxe footer {
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -335,7 +359,7 @@ body.luxe footer {
   }
 
   .logo {
-    font-size: 2.3rem; /* smaller for mobile */
+    font-size: 2.3rem;
     text-align: center;
   }
 
@@ -345,7 +369,7 @@ body.luxe footer {
   }
 
   .hero h1 {
-    font-size: 2.2rem; /* reduced size for mobile */
+    font-size: 2.2rem;
   }
 
   .gallery h2,
@@ -363,7 +387,7 @@ body.luxe footer {
     padding: 2rem 1rem;
   }
 
-  /* Move Luxe toggle to bottom */
+  /* Luxe toggle at bottom for mobile */
   .theme-toggle {
     position: fixed;
     bottom: 20px;
@@ -381,6 +405,8 @@ body.luxe footer {
     color: #111;
   }
 }
+
+
 
 
 
