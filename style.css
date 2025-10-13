@@ -1,3 +1,406 @@
+/* ============================================
+   ZAGGGYWEAR - URBAN LUXE STYLESHEET (UPDATED)
+   ============================================ */
+
+/* ===== BASE COLORS & FONTS ===== */
+:root {
+  --black: #0b0b0b;
+  --white: #f5f5f5;
+  --gold: #c6a664;
+  --gray: #999;
+  --transition: all 0.4s ease;
+}
+
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+  color: var(--white);
+  background: var(--black);
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.4s ease;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  font-family: 'Nabla', cursive;
+  font-weight: 400;
+  font-size: 2.6rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  color: #e7ca7a;
+  text-shadow: 0 0 15px rgba(198, 166, 100, 0.5);
+}
+
+/* ===== NAVIGATION ===== */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav ul li a:hover {
+  color: var(--gold);
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  padding: 0.4rem 0.9rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: var(--white);
+  padding-top: 3rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  transition: background 0.5s ease;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  animation: fadeIn 2s ease;
+}
+
+.hero-title {
+  margin-top: 2rem; /* near top */
+  font-family: 'Nabla', cursive;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(198, 166, 100, 0.4);
+}
+
+.hero-bottom-content {
+  margin-bottom: 3rem; /* near bottom */
+}
+
+.hero-bottom-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  font-family: 'UnifrakturMaguntia', cursive, serif;
+  padding: 0.9rem 2rem;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 2rem;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  padding: 6rem 5% 4rem;
+  background: var(--black);
+  text-align: center;
+}
+
+.gallery h2 {
+  font-family: 'Nabla', cursive;
+  font-size: 2.8rem;
+  color: var(--gold);
+  margin-bottom: 2.5rem;
+}
+
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.95);
+  display: block;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(198, 166, 100, 0.4);
+  filter: brightness(1);
+}
+
+/* ===== ABOUT ===== */
+.about {
+  padding: 5rem 5%;
+  background: #111;
+  text-align: center;
+}
+
+.about h2 {
+  font-family: 'Nabla', cursive;
+  color: var(--gold);
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.about p {
+  max-width: 750px;
+  margin: 0 auto;
+  color: var(--white);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding: 5rem 5%;
+  background: var(--black);
+  text-align: center;
+}
+
+.contact h2 {
+  font-family: 'Nabla', cursive;
+  color: var(--gold);
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+.contact p {
+  color: var(--white);
+}
+
+form input,
+form textarea {
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #1a1a1a;
+  color: var(--white);
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+form button {
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+form button:hover {
+  background: #d7b978;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+/* ===== LUXE MODE ===== */
+body.luxe {
+  background: var(--white);
+  color: #111;
+}
+
+body.luxe p {
+  color: #000;
+}
+
+body.luxe header {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.luxe .logo {
+  color: #b59b43;
+}
+
+body.luxe .about,
+body.luxe .gallery,
+body.luxe .contact {
+  background: #f2f2f2;
+}
+
+body.luxe footer {
+  background: #f2f2f2;
+  color: #444;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    font-size: 2.3rem;
+    text-align: center;
+  }
+
+  nav,
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content {
+    justify-content: space-between;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-bottom-content {
+    margin-bottom: 2rem;
+  }
+
+  .gallery h2,
+  .about h2,
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid var(--gold);
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--gold);
+    padding: 0.6rem 1.2rem;
+    z-index: 999;
+  }
+
+  body.luxe .theme-toggle {
+    background: rgba(255, 255, 255, 0.9);
+    color: #111;
+  }
+}
+
 /* ===== MANYARUNIGGA COMIC PAGE ===== */
 .comic-page {
   background-color: var(--black);
@@ -89,6 +492,7 @@
     max-width: 100%;
   }
 }
+
 
 
 
