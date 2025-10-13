@@ -25,7 +25,10 @@
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="comics/manyarunigga.html" class="comic-link">Comics</a></li>
+
+        <!-- NEW: link to the comic page inside /comics -->
+        <li><a href="comics/manyarunigga.html">Manyarunigga Comic</a></li>
+
         <li><button id="themeToggle" class="theme-toggle">Luxe Mode</button></li>
       </ul>
     </nav>
@@ -92,6 +95,7 @@
     }
     let heroIndex = 0;
     function changeHero() {
+      if (!hero) return;
       hero.style.backgroundImage = `url('${heroImages[heroIndex]}')`;
       heroIndex = (heroIndex + 1) % heroImages.length;
     }
@@ -100,11 +104,13 @@
 
     // ===== GALLERY IMAGES =====
     const galleryGrid = document.getElementById('galleryGrid');
-    for (let i = 1; i <= 15; i++) {
-      const img = document.createElement('img');
-      img.src = `media/a${i}.jpg`;
-      img.alt = `Drop ${i}`;
-      galleryGrid.appendChild(img);
+    if (galleryGrid) {
+      for (let i = 1; i <= 15; i++) {
+        const img = document.createElement('img');
+        img.src = `media/a${i}.jpg`;
+        img.alt = `Drop ${i}`;
+        galleryGrid.appendChild(img);
+      }
     }
 
     // ===== SMOOTH SCROLL =====
@@ -130,32 +136,38 @@
     // ===== THEME TOGGLE =====
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('luxe');
-      themeToggle.textContent = body.classList.contains('luxe') ? 'Dark Mode' : 'Luxe Mode';
-      localStorage.setItem('theme', body.classList.contains('luxe') ? 'luxe' : 'dark');
-    });
-    if (localStorage.getItem('theme') === 'luxe') {
-      body.classList.add('luxe');
-      themeToggle.textContent = 'Dark Mode';
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('luxe');
+        themeToggle.textContent = body.classList.contains('luxe') ? 'Dark Mode' : 'Luxe Mode';
+        localStorage.setItem('theme', body.classList.contains('luxe') ? 'luxe' : 'dark');
+      });
+      if (localStorage.getItem('theme') === 'luxe') {
+        body.classList.add('luxe');
+        themeToggle.textContent = 'Dark Mode';
+      }
     }
 
     // ===== MOBILE NAV TOGGLE =====
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-    mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
+    if (mobileMenu && navLinks) mobileMenu.addEventListener('click', () => navLinks.classList.toggle('active'));
 
     // ===== FORM VALIDATION =====
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(event) {
-      if (!contactForm.checkValidity()) {
-        event.preventDefault();
-        alert('Please fill out all fields before submitting.');
-      }
-    });
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(event) {
+        if (!contactForm.checkValidity()) {
+          event.preventDefault();
+          alert('Please fill out all fields before submitting.');
+        }
+      });
+    }
   </script>
 </body>
 </html>
+
+
 
 
 
