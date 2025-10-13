@@ -4,31 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manyarunigga | Zagggywear</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Use the main stylesheet (one level up) -->
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body class="comic-page">
   <header class="comic-header">
-    <h1>Manyarunigga</h1>
-    <p>Created by <strong>Zagggy Babyyy</strong> — Founder & CEO of <strong>Zagggywear</strong></p>
+    <div class="logo">ZAGGGYWEAR</div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Back to Zagggywear</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="comic-gallery">
-    <img src="comic pages/page 1.jpg" alt="Manyarunigga Page 1">
-    <img src="comic pages/page 2.jpg" alt="Manyarunigga Page 2">
-    <img src="comic pages/page 3.jpg" alt="Manyarunigga Page 3">
-    <img src="comic pages/page 4.jpg" alt="Manyarunigga Page 4">
-    <img src="comic pages/page 5.jpg" alt="Manyarunigga Page 5">
-    <img src="comic pages/page 6.jpg" alt="Manyarunigga Page 6">
-    <img src="comic pages/page 7.jpg" alt="Manyarunigga Page 7">
-    <img src="comic pages/page 8.jpg" alt="Manyarunigga Page 8">
+  <main class="comic-gallery" id="comicGallery">
+    <!-- Images will render here -->
+    <noscript>
+      <!-- Fallback if JS disabled -->
+      <img src="comic pages/page 1.jpg" alt="Page 1">
+      <img src="comic pages/page 2.jpg" alt="Page 2">
+      <img src="comic pages/page 3.jpg" alt="Page 3">
+      <img src="comic pages/page 4.jpg" alt="Page 4">
+      <img src="comic pages/page 5.jpg" alt="Page 5">
+      <img src="comic pages/page 6.jpg" alt="Page 6">
+      <img src="comic pages/page 7.jpg" alt="Page 7">
+      <img src="comic pages/page 8.jpg" alt="Page 8">
+    </noscript>
   </main>
 
   <footer class="comic-footer">
-    <p>© 2025 Zagggywear. All Rights Reserved.</p>
-    <p><a href="index.html">← Back to Zagggywear Home</a></p>
+    <p>© 2025 Zagggywear — Manyarunigga</p>
   </footer>
+
+  <script>
+    // Dynamically load comic images from "comic pages" folder (so filenames with spaces match your current setup)
+    const gallery = document.getElementById('comicGallery');
+    if (gallery) {
+      for (let i = 1; i <= 8; i++) {
+        const img = document.createElement('img');
+        // Use the exact filename pattern you told me: "page 1.jpg" etc.
+        img.src = `comic pages/page ${i}.jpg`;
+        img.alt = `Manyarunigga Page ${i}`;
+        img.loading = 'lazy';
+        gallery.appendChild(img);
+      }
+    }
+  </script>
 </body>
 </html>
+
 
 
 
