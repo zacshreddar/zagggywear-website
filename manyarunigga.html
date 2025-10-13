@@ -5,32 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manyarunigga | Zagggywear</title>
 
-  <!-- Use the main stylesheet (one level up) -->
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    body.comic-page {
+      background: #0b0b0b;
+      color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    .comic-header {
+      background: rgba(11, 11, 11, 0.95);
+      border-bottom: 1px solid #c6a66444;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .comic-header .logo {
+      font-family: 'Nabla', cursive;
+      color: #c6a664;
+      font-size: 1.8rem;
+    }
+
+    .comic-header nav a {
+      color: #c6a664;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .comic-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+
+    .comic-gallery img {
+      width: 95%;
+      max-width: 850px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(198, 166, 100, 0.25);
+      transition: opacity 0.4s ease;
+      cursor: pointer;
+    }
+
+    .comic-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .comic-nav button {
+      background: none;
+      border: 1px solid #c6a664;
+      color: #c6a664;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .comic-nav button:hover {
+      background: #c6a664;
+      color: #0b0b0b;
+      transform: scale(1.05);
+    }
+
+    .comic-footer {
+      border-top: 1px solid #c6a66444;
+      padding: 1rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* === FULLSCREEN OVERLAY === */
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .fullscreen img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      cursor: zoom-out;
+    }
+
+    .fullscreen .exit-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: rgba(198, 166, 100, 0.8);
+      border: none;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .comic-nav button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body class="comic-page">
   <header class="comic-header">
     <div class="logo">ZAGGGYWEAR</div>
     <nav>
       <ul>
-        <li><a href="../index.html">Back to Zagggywear</a></li>
+        <li><a href="../index.html">← Back to Zagggywear</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="comic-gallery" id="comicGallery">
-    <!-- Images will render here -->
-    <noscript>
-      <!-- Fallback if JS disabled -->
-      <img src="comic pages/page 1.png" alt="Page 1">
-      <img src="comic pages/page 2.png" alt="Page 2">
-      <img src="comic pages/page 3.png" alt="Page 3">
-      <img src="comic pages/page 4.png" alt="Page 4">
-      <img src="comic pages/page 5.png" alt="Page 5">
-      <img src="comic pages/page 6.png" alt="Page 6">
-      <img src="comic pages/page 7.png" alt="Page 7">
-      <img src="comic pages/page 8.png" alt="Page 8">
-    </noscript>
+  <main class="comic-gallery">
+    <img id="comicImage" src="comic pages/page 1.png" alt="Manyarunigga Page 1">
+    <div class="comic-nav">
+      <button id="prevBtn">Previous</button>
+      <span id="pageCounter">Page 1 of 8</span>
+      <button id="nextBtn">Next</button>
+    </div>
   </main>
 
   <footer class="comic-footer">
@@ -38,21 +153,83 @@
   </footer>
 
   <script>
-    // Dynamically load comic images from "comic pages" folder (so filenames with spaces match your current setup)
-    const gallery = document.getElementById('comicGallery');
-    if (gallery) {
-      for (let i = 1; i <= 8; i++) {
-        const img = document.createElement('img');
-        // Use the exact filename pattern you told me: "page 1.jpg" etc.
-        img.src = `comic pages/page ${i}.jpg`;
-        img.alt = `Manyarunigga Page ${i}`;
-        img.loading = 'lazy';
-        gallery.appendChild(img);
-      }
+    const totalPages = 8;
+    let currentPage = 1;
+    const comicImage = document.getElementById('comicImage');
+    const pageCounter = document.getElementById('pageCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateComic() {
+      comicImage.style.opacity = 0;
+      setTimeout(() => {
+        comicImage.src = `comic pages/page ${currentPage}.png`;
+        comicImage.alt = `Manyarunigga Page ${currentPage}`;
+        pageCounter.textContent = `Page ${currentPage} of ${totalPages}`;
+        comicImage.style.opacity = 1;
+      }, 300);
     }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateComic();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateComic();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && currentPage > 1) {
+        currentPage--;
+        updateComic();
+      } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+        currentPage++;
+        updateComic();
+      }
+    });
+
+    // === Fullscreen Mode ===
+    comicImage.addEventListener('click', () => {
+      const fullscreenDiv = document.createElement('div');
+      fullscreenDiv.classList.add('fullscreen');
+      fullscreenDiv.innerHTML = `
+        <button class="exit-btn">Close ✕</button>
+        <img src="comic pages/page ${currentPage}.png" alt="Manyarunigga Page ${currentPage}">
+      `;
+      document.body.appendChild(fullscreenDiv);
+
+      const exitBtn = fullscreenDiv.querySelector('.exit-btn');
+      const fsImg = fullscreenDiv.querySelector('img');
+
+      // Exit on button or image click
+      exitBtn.addEventListener('click', () => fullscreenDiv.remove());
+      fsImg.addEventListener('click', () => fullscreenDiv.remove());
+
+      // Swipe navigation inside fullscreen (mobile)
+      let startX = 0;
+      fsImg.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+      fsImg.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentPage < totalPages) currentPage++;
+          else if (diff < 0 && currentPage > 1) currentPage--;
+          fsImg.src = `comic pages/page ${currentPage}.png`;
+          pageCounter.textContent = `Page ${currentPage} of ${totalPages}`;
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
 
 
 
