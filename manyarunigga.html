@@ -152,81 +152,18 @@
     <p>© 2025 Zagggywear — Manyarunigga</p>
   </footer>
 
-  <script>
-    const totalPages = 8;
-    let currentPage = 1;
-    const comicImage = document.getElementById('comicImage');
-    const pageCounter = document.getElementById('pageCounter');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    function updateComic() {
-      comicImage.style.opacity = 0;
-      setTimeout(() => {
-        comicImage.src = `comic pages/page ${currentPage}.png`;
-        comicImage.alt = `Manyarunigga Page ${currentPage}`;
-        pageCounter.textContent = `Page ${currentPage} of ${totalPages}`;
-        comicImage.style.opacity = 1;
-      }, 300);
+ <script>
+  const gallery = document.getElementById('comicGallery');
+  if (gallery) {
+    for (let i = 1; i <= 8; i++) {
+      const img = document.createElement('img');
+      img.src = `comic pages/page ${i}.png`;  // PNG extension
+      img.alt = `Manyarunigga Page ${i}`;
+      img.loading = 'lazy';
+      gallery.appendChild(img);
     }
-
-    prevBtn.addEventListener('click', () => {
-      if (currentPage > 1) {
-        currentPage--;
-        updateComic();
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (currentPage < totalPages) {
-        currentPage++;
-        updateComic();
-      }
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft' && currentPage > 1) {
-        currentPage--;
-        updateComic();
-      } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
-        currentPage++;
-        updateComic();
-      }
-    });
-
-    // === Fullscreen Mode ===
-    comicImage.addEventListener('click', () => {
-      const fullscreenDiv = document.createElement('div');
-      fullscreenDiv.classList.add('fullscreen');
-      fullscreenDiv.innerHTML = `
-        <button class="exit-btn">Close ✕</button>
-        <img src="comic pages/page ${currentPage}.png" alt="Manyarunigga Page ${currentPage}">
-      `;
-      document.body.appendChild(fullscreenDiv);
-
-      const exitBtn = fullscreenDiv.querySelector('.exit-btn');
-      const fsImg = fullscreenDiv.querySelector('img');
-
-      // Exit on button or image click
-      exitBtn.addEventListener('click', () => fullscreenDiv.remove());
-      fsImg.addEventListener('click', () => fullscreenDiv.remove());
-
-      // Swipe navigation inside fullscreen (mobile)
-      let startX = 0;
-      fsImg.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-      fsImg.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
-        if (Math.abs(diff) > 50) {
-          if (diff > 0 && currentPage < totalPages) currentPage++;
-          else if (diff < 0 && currentPage > 1) currentPage--;
-          fsImg.src = `comic pages/page ${currentPage}.png`;
-          pageCounter.textContent = `Page ${currentPage} of ${totalPages}`;
-        }
-      });
-    });
-  </script>
+  }
+</script>
 </body>
 </html>
 
