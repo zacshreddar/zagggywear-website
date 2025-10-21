@@ -3,74 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop | ZAGGGYWEAR</title>
-
-  <!-- Link to your main CSS -->
+  <title>Shop | Zagggywear</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <header>
+  <header class="main-header">
+    <div class="logo">ZAGGGYWEAR</div>
     <nav>
-      <div class="logo">ZAGGGYWEAR</div>
-      <ul class="nav-links">
+      <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="manyarunigga.html">Comic</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- SHOP SECTION -->
-  <section id="shop" class="shop">
-    <h1>Latest Collection</h1>
-    <p class="tagline">Urban Luxe pieces — designed for confidence, crafted in Kenya.</p>
-
-    <div class="shop-grid">
-      <!-- Product 1 -->
-      <div class="product">
-        <img src="images/black-hoodie.jpg" alt="Zagggy Hoodie" />
-        <h3>Zagggy Hoodie</h3>
-        <p class="price">KSh 2,800</p>
-        <a href="https://wa.me/2547XXXXXXXX?text=Hi%20Zagggy,%20I%20want%20to%20order%20the%20Zagggy%20Hoodie" class="btn">Buy on WhatsApp</a>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product">
-        <img src="images/white-tee.jpg" alt="Zagggy Tee" />
-        <h3>White Tee</h3>
-        <p class="price">KSh 1,500</p>
-        <a href="https://wa.me/2547XXXXXXXX?text=Hi%20Zagggy,%20I%20want%20to%20order%20the%20White%20Tee" class="btn">Buy on WhatsApp</a>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product">
-        <img src="images/denim-jacket.jpg" alt="Denim Jacket" />
-        <h3>Denim Jacket</h3>
-        <p class="price">KSh 4,200</p>
-        <a href="https://wa.me/2547XXXXXXXX?text=Hi%20Zagggy,%20I%20want%20to%20order%20the%20Denim%20Jacket" class="btn">Buy on WhatsApp</a>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product">
-        <img src="images/black-cap.jpg" alt="Black Cap" />
-        <h3>Black Cap</h3>
-        <p class="price">KSh 900</p>
-        <a href="https://wa.me/2547XXXXXXXX?text=Hi%20Zagggy,%20I%20want%20to%20order%20the%20Black%20Cap" class="btn">Buy on WhatsApp</a>
-      </div>
-    </div>
+  <section class="shop-intro">
+    <h1>Shop Zagggywear</h1>
+    <p>Streetwear made for confidence, attitude, and kulture 🔥</p>
   </section>
 
-  <!-- CONTACT FOOTER -->
-  <footer id="contact">
-    <p>Follow ZAGGGYWEAR: 
-      <a href="https://instagram.com/zagggywear" target="_blank">Instagram</a> | 
-      <a href="https://tiktok.com/@zagggywear" target="_blank">TikTok</a> | 
-      <a href="https://twitter.com/zagggywear" target="_blank">Twitter</a> | 
-      <a href="https://youtube.com/@zagggybabyyy" target="_blank">YouTube</a>
-    </p>
-    <p>© 2025 ZAGGGYWEAR — Urban Luxe Reimagined.</p>
+  <main class="shop-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x400?text=Zagggy+Hoodie" alt="Zagggy Hoodie">
+      <h3>Zagggy Hoodie</h3>
+      <p class="price">KSh 2,800</p>
+      <a 
+        href="https://wa.me/254724468750?text=Hey%20Zagggy,%20I%20want%20to%20buy%20the%20Zagggy%20Hoodie"
+        class="buy-btn"
+        target="_blank">Buy Now</a>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x400?text=Street+Tee" alt="Street Tee">
+      <h3>Street Tee</h3>
+      <p class="price">KSh 1,800</p>
+      <a 
+        href="https://wa.me/254724468750?text=Hey%20Zagggy,%20I%20want%20to%20buy%20the%20Street%20Tee"
+        class="buy-btn"
+        target="_blank">Buy Now</a>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x400?text=Raw+Kulture+Cap" alt="Raw Kulture Cap">
+      <h3>Raw Kulture Cap</h3>
+      <p class="price">KSh 1,200</p>
+      <a 
+        href="https://wa.me/254724468750?text=Hey%20Zagggy,%20I%20want%20to%20buy%20the%20Raw%20Kulture%20Cap"
+        class="buy-btn"
+        target="_blank">Buy Now</a>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x400?text=Zagggy+Pants" alt="Zagggy Pants">
+      <h3>Zagggy Pants</h3>
+      <p class="price">KSh 3,500</p>
+      <a 
+        href="https://wa.me/254724468750?text=Hey%20Zagggy,%20I%20want%20to%20buy%20the%20Zagggy%20Pants"
+        class="buy-btn"
+        target="_blank">Buy Now</a>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <p>© 2025 Zagggywear — Street Kulture. Tunavaa Kulture, si fashion tu.</p>
   </footer>
 </body>
 </html>
+
+
