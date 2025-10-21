@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manyarunigga | Zagggywear</title>
 
+  <!-- Use the main stylesheet -->
   <link rel="stylesheet" href="../style.css" />
   <style>
     body.comic-page {
@@ -52,7 +53,7 @@
       box-shadow: 0 0 20px rgba(198, 166, 100, 0.25);
       transition: opacity 0.4s ease;
       cursor: pointer;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .comic-footer {
@@ -63,6 +64,7 @@
     }
   </style>
 </head>
+
 <body class="comic-page">
   <header class="comic-header">
     <div class="logo">ZAGGGYWEAR</div>
@@ -73,38 +75,29 @@
     </nav>
   </header>
 
-  <!-- ✅ Added id="comicGallery" -->
+  <!-- Added id="comicGallery" -->
   <main class="comic-gallery" id="comicGallery">
-    <noscript>
-      <img src="comic pages/page 1.png" alt="Page 1">
-      <img src="comic pages/page 2.png" alt="Page 2">
-      <img src="comic pages/page 3.png" alt="Page 3">
-      <img src="comic pages/page 4.png" alt="Page 4">
-      <img src="comic pages/page 5.png" alt="Page 5">
-      <img src="comic pages/page 6.png" alt="Page 6">
-      <img src="comic pages/page 7.png" alt="Page 7">
-      <img src="comic pages/page 8.png" alt="Page 8">
-    </noscript>
+    <!-- Images will be loaded dynamically -->
   </main>
 
   <footer class="comic-footer">
     <p>© 2025 Zagggywear — Manyarunigga</p>
   </footer>
 
-  <!-- ✅ Fixed JS -->
   <script>
     const gallery = document.getElementById('comicGallery');
+
     if (gallery) {
       for (let i = 1; i <= 8; i++) {
         const img = document.createElement('img');
-        img.src = `comic pages/page ${i}.png`;
+        img.src = `comic pages/page ${i}.png`; // correct PNG extension
         img.alt = `Manyarunigga Page ${i}`;
         img.loading = 'lazy';
         gallery.appendChild(img);
       }
-    } else {
-      console.error('Comic gallery not found!');
     }
   </script>
 </body>
 </html>
+
+
