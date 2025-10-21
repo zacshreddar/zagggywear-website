@@ -5,66 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manyarunigga | Zagggywear</title>
 
-  <!-- Use the main stylesheet -->
+  <!-- Link your main CSS -->
   <link rel="stylesheet" href="../style.css" />
-  <style>
-    body.comic-page {
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      overflow-x: hidden;
-      text-align: center;
-    }
-
-    .comic-header {
-      background: rgba(11, 11, 11, 0.95);
-      border-bottom: 1px solid #c6a66444;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .comic-header .logo {
-      font-family: 'Nabla', cursive;
-      color: #c6a664;
-      font-size: 1.8rem;
-    }
-
-    .comic-header nav a {
-      color: #c6a664;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    .comic-gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-
-    .comic-gallery img {
-      width: 95%;
-      max-width: 850px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(198, 166, 100, 0.25);
-      transition: opacity 0.4s ease;
-      cursor: pointer;
-      margin-bottom: 2rem;
-    }
-
-    .comic-footer {
-      border-top: 1px solid #c6a66444;
-      padding: 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
-
 <body class="comic-page">
   <header class="comic-header">
     <div class="logo">ZAGGGYWEAR</div>
@@ -73,11 +16,24 @@
         <li><a href="../index.html">← Back to Zagggywear</a></li>
       </ul>
     </nav>
+    <h1>Manyarunigga</h1>
+    <p>The first comic from Zagggywear</p>
   </header>
 
-  <!-- Added id="comicGallery" -->
+  <!-- Comic gallery section -->
   <main class="comic-gallery" id="comicGallery">
-    <!-- Images will be loaded dynamically -->
+    <!-- Comic images will load dynamically -->
+    <noscript>
+      <!-- Fallback in case JS is disabled -->
+      <img src="comic pages/page 1.png" alt="Page 1" />
+      <img src="comic pages/page 2.png" alt="Page 2" />
+      <img src="comic pages/page 3.png" alt="Page 3" />
+      <img src="comic pages/page 4.png" alt="Page 4" />
+      <img src="comic pages/page 5.png" alt="Page 5" />
+      <img src="comic pages/page 6.png" alt="Page 6" />
+      <img src="comic pages/page 7.png" alt="Page 7" />
+      <img src="comic pages/page 8.png" alt="Page 8" />
+    </noscript>
   </main>
 
   <footer class="comic-footer">
@@ -85,12 +41,12 @@
   </footer>
 
   <script>
+    // Load all comic pages dynamically
     const gallery = document.getElementById('comicGallery');
-
     if (gallery) {
       for (let i = 1; i <= 8; i++) {
         const img = document.createElement('img');
-        img.src = `comic pages/page ${i}.png`; // correct PNG extension
+        img.src = `comic pages/page ${i}.png`; // make sure names are EXACT
         img.alt = `Manyarunigga Page ${i}`;
         img.loading = 'lazy';
         gallery.appendChild(img);
@@ -99,5 +55,6 @@
   </script>
 </body>
 </html>
+
 
 
